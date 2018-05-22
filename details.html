@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head> 
+  <meta name="Modified" content="1525268951587"> 
+  <title>פרטים</title> 
+  <!-- META --> 
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta http-equiv="Pragma" content="no-cache"> 
+  <meta http-equiv="Expires" content="0"> 
+  <meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate"> 
+  <meta http-equiv="last-modified" content="1525258655006"> 
+  <meta name="Created-By" content="AuraPlayer"> 
+  <meta name="Creation-Timestamp" content="1525258655006"> 
+  <!-- CSS imports --> 
+  <link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile-1.4.5.min.css"> 
+  <link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile.theme-1.4.5.min.css"> 
+  <link rel="stylesheet" href="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.css"> 
+  <link rel="stylesheet" href="../../res/nativeDroid/css/nativedroid2.css"> 
+  <link rel="stylesheet" href="../../res/bootstrap/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+  <!-- <link rel="stylesheet" href="../../res/auraplayer/android.css"> 
+  <link rel="stylesheet" href="../../res/auraplayer/hamburger.css">  -->
+  <!-- Javascript imports --> 
+  <script type="text/javascript" src="../../res/jquery/jquery.min.js"></script> 
+  <script type="text/javascript" src="../../res/jquery/jquery-dateFormat.min.js"></script> 
+  <script type="text/javascript" src="../../res/jqueryMobile/jquery.mobile-1.4.5.min.js"></script> 
+  <script type="text/javascript" src="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.js"></script> 
+  <script type="text/javascript" src="../../res/nativeDroid/js/nativedroid2.js"></script> 
+  <!-- <script type="text/javascript" src="../../res/bootstrap/js/bootstrap.min.js"></script> --> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+  <!-- AuraPlayer imports --> 
+  <script type="text/javascript" src="../../res/dist/auraplayer.js"></script> 
+  <script type="text/javascript" src="js/app.common.js"></script> 
+  <script type="text/javascript" src="json/handlerMap_1525258655006.json"></script> 
+  <script type="text/javascript" src="js/custom_js_1525258655006.js"></script> 
+  <style>
+            @media (max-width: 550px) {
+#pageTitle {
+    margin-left: 120px;
+    text-align: left !important;
+  }
+}
+
+.body {
+    background-color: #ffffff !important;
+}
+
+
+.moaginput{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid whitesmoke;
+    text-align: right!important;
+}
+.moagLogin{
+    width:100%;
+    margin-top:10px; 
+
+}
+.moagselect{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid whitesmoke;
+}
+.moagBtn{
+    
+    background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    height: 50px;
+    color:white;
+}
+.moagbtnDanger{
+    background-color: #ac2925;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    height: 50px;
+    color:white;
+    
+}
+.moagtitle{
+        text-align: center!important;
+        font-size: 18px!important;
+        position: relative!important;
+        top: 14px!important;
+        color: black!important;
+    }
+.logoImg{
+    padding:5px;
+    position: relative;
+    top: -10px;
+}
+.moagcity{
+    background-color: transparent!important;
+    border: none!important;
+    border-bottom: 2px solid whitesmoke!important;
+}
+.moagdrop{
+    overflow-y: scroll;
+    height: 300px;
+}
+.ui-autocomplete{
+    position:relative!important;
+    height: 150px!important;
+    overflow-y: scroll!important;
+}
+.center-details{
+    max-width: 800px;
+}
+.citiesInput{
+    text-align: right;
+}
+        </style> 
+ </head> 
+ <body dir="RTL" id="mainBody"> 
+  <script type="text/javascript">
+	var showStatusMessages = false;
+    var origRequestFields;
+    
+	
+	$(function () {
+	    origRequestFields = $('#requestFields').clone();
+	    setDefaultValues();
+        initData();
+        //loadCities();
+
+        $('#back').click( function() {
+            navigate('manu.html');
+        })
+        let mesamen = sessionStorage.getItem('CONTROL2_ZIHUY_0'); 
+        $('#CONTROL2_MESAMEN_ZH_0').val(mesamen);
+
+        callWebServiceWithAllParams("MOAG_loginUser", "",function(data){
+          console.log(data);
+          let userLocation = data.Response.MOAG_loginUserElements.CONTROL2_SHEM_ISHUV_0;
+          $( "#cities" ).val(userLocation);
+          setTimeout(loadCities, 10);
+        }, function(){alert("Please enter a valid user")})
+
+        $(document).ready(function() {
+           loadCities();
+           $("html,body").css("overflow","hidden");
+          
+
+        });
+	    //ities();
+        
+        // verifyLogin();
+        prepareMobileLOV({
+            lovId: "CONTROL2_SHEM_ISHUV_0_lov",
+            triggerId: "CONTROL2_SHEM_ISHUV_0_lov_trigger",
+            elementId: "CONTROL2_SHEM_ISHUV_0",
+            webService: "MOAG_getCityLOV",
+            requestPreparer: "prepare_CONTROL2_SHEM_ISHUV_0_lov_request",
+            itemPresenter: "CONTROL2_SHEM_ISHUV_0_lov_item_presenter",
+            itemHandler: "CONTROL2_SHEM_ISHUV_0_lov_item_handler"
+        });
+
+	    
+	    validateRequiredFields();
+	    
+	    $('input').on('input blur', function() {
+	    	setTimeout(validateRequiredFields, 200);
+		});
+	});
+	
+	var defaultValues = {};
+	defaultValues['CONTROL2_SHEM_ISHUV_0'] = {
+        value: null,
+        type: 'lov'
+    };
+
+	defaultValues['CONTROL2_SHEM_BAALIM_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_TAR_SIMUN_0'] = {
+        value: convert_CONTROL2_TAR_SIMUN_0(null),
+        type: 'date'
+    };
+
+	defaultValues['CONTROL2_MEGADEL_ZH_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_BAALIM_ZH_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_MESAMEN_ZH_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_SHEM_MEGADEL_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+    function verifyLogin(){
+        let user = sessionStorage.getItem('CONTROL2_PASSWORD_0');
+        if (!user) navigate('Login.html');
+    }
+    
+	
+	function showInputScreen() {
+	    setDefaultValues();
+	    refreshInputElements();
+	
+	    $("#requestPart").show();
+	    $("#responsePart").hide();
+	
+	    clearOutputFields();
+	}
+	function chooseCity(city){
+        $('#dLabel').text(city);
+    }
+
+    function deleteLOV(key, length)
+    {
+        for (let i =0; i < length; i++){
+            let keyStore = key +'_'+ i;
+            let lov = sessionStorage.getItem(keyStore);
+            if (lov) sessionStorage.removeItem(keyStore);
+        }
+        
+    }
+   
+	function loadCities() {
+	   callWebServiceWithAllParams("MOAG_getCityLOV", "", function(data){
+           console.log(data);
+           var availableCities = [];
+           var cites = data.Response.MOAG_getCityLOVTableArray.MOAG_getCityLOVArrayItem;
+           for (var i=0;i < cites.length; i++){
+               var city = cites[i];
+               availableCities.push(city.LOV_ISHUV);
+           }
+           $( "#cities" ).autocomplete({
+                source: availableCities,
+                appendTo: "#CONTROL2_SHEM_ISHUV_0_container"
+            });
+            deleteLOV("LOV",cites.length );
+           
+        }, function(){console.log('not loaded');})
+	}
+	
+	//handler for request sent
+	function sendRequestHandler() {
+	    document.getElementById("responsePart").style.display = 'none';
+	    spinner().start("Executing..", "a");
+	}
+	
+	//handler for response received
+	function receiveResponseHandler(response, serviceName, status, populateFields) {
+	    spinner().stop();
+	
+	    if (typeof(populateFields) === 'undefined' || populateFields) {
+	        //show output params
+	
+	        document.getElementById("responsePart").style.display = '';
+	        validateRequiredFields();
+	    }
+	}
+	
+    //init function
+    $(function () {
+        removeDuplicatedFields();
+    });
+</script> 
+  <div id="mainPage" data-role="page" data-theme="a" class="background-stretch" style="background-image: url('../../www/img/bg_homepage_Img.jpg')"> 
+   <nav class="navbar navbar-default"> 
+    <div class="container-fluid moagtitle">
+      סמנים 
+     <div class="navbar-header logoImg"> 
+      <a class="navbar-brand"> </a> 
+      <a href="javascript:navigate('Login.html')"><img src="../../www/img/moag.png" width="120px"></a> 
+     </div> 
+    </div> 
+   </nav> 
+   <br> 
+   <br> 
+  
+   <div data-role="main" class="ui-content"> 
+    <div class="container center-details"> 
+     <div class="row" style="padding: 12px 8px"> 
+      <div style="font-size: 20px; font-family: arial,serif;
+	                        color:#ffffff"></div> 
+     </div> 
+     <div> 
+      <div id="requestPart" name="requestPart"> 
+       <div class="row" id="requestFields" style="padding: 12px 8px"> 
+        <form style="width: 98%"> 
+        </form> 
+       </div> 
+       <div class="row" id="responseField" style="padding: 12px 8px"> 
+            <form id="responseForm" style="width: 100%"> 
+            <span class="responseField col-md-4"  id="CONTROL2_MESAMEN_ZH_0_container">
+                <label for="CONTROL2_MESAMEN_ZH_0" style="color:#696969"> 
+                    <nobr>
+                        ת.ז. מסמן 
+                    </nobr> 
+                </label> 
+                <input id="CONTROL2_MESAMEN_ZH_0" name="ת.ז. מסמן" type="text" value="" class="moaginput" disabled required>
+            </span> 
+            <span class="responseField col-md-4" maxlength="9" style="display: inline-block; width: 25%;margin-right:10px;" id="CONTROL2_MESAMEN_ZH_0_container">
+                <label for="CONTROL2_MESAMEN_ZH_0" style="color:#696969"> 
+                    <nobr>
+                    שם מסמן 
+                    </nobr>
+                </label>
+                <input id="CONTROL2_SHEM_MESAMEN_0" name="ת.ז. מסמן" type="text" value="" class="moaginput" disabled required>
+            </span> 
+            <span class="responseField col-md-4" style="display: inline-block; width: 25%;margin-right:10px;" id="CONTROL2_TAR_SIMUN_0_container">
+                <label for="CONTROL2_TAR_SIMUN_0" style="color:#696969"> 
+                    <nobr>
+                        תאריך סימון 
+                    </nobr> 
+                </label>
+                <input type="text" id="CONTROL2_TAR_SIMUN_0" name="תאריך סימון" class="moaginput" required>
+            </span> 
+        </div>    
+        <div class="row">
+            <span class="responseField col-md-4" style="display: inline-block; width: 25%;margin-right:10px;" id="CONTROL2_BAALIM_ZH_0_container"> <label for="CONTROL2_BAALIM_ZH_0" style="color:#696969"> 
+                <nobr>
+                    ת.ז. בעלים 
+                </nobr> </label> 
+                <input id="CONTROL2_BAALIM_ZH_0" maxlength="9" name="ת.ז. בעלים" type="text" value="" disabled class="moaginput">
+            </span>
+            <span class="responseField col-md-4" style="display: inline-block; width: 25%;margin-right:10px;" id="CONTROL2_SHEM_BAALIM_0_container"> <label for="CONTROL2_SHEM_BAALIM_0" style="color:#696969"> 
+                <nobr>
+                    שם בעלים 
+                </nobr>
+                </label> 
+                <input id="CONTROL2_SHEM_BAALIM_0" name="שם בעלים" type="text" value="" disabled class="moaginput">
+            </span>
+
+        </div> 
+        <div class="row">
+            
+            <span class="responseField col-md-4" style="display: inline-block; width: 25%;" id="CONTROL2_MEGADEL_ZH_0_container"> 
+                <label for="CONTROL2_MEGADEL_ZH_0" style="color:#696969"> 
+                    <nobr>
+                        ת.ז. מגדל 
+                    </nobr> 
+                </label> 
+                <input id="CONTROL2_MEGADEL_ZH_0" maxlength="9" name="ת.ז. מגדל" type="text" value="" disabled class="moaginput">
+            </span>        
+            <span class="responseField col-md-4" style="display: inline-block; width: 25%;" id="CONTROL2_SHEM_MEGADEL_0_container"> 
+                <label for="CONTROL2_SHEM_MEGADEL_0" style="color:#696969"> 
+                    <nobr>
+                        שם מגדל 
+                    </nobr> 
+                </label>
+                <input id="CONTROL2_SHEM_MEGADEL_0" name="שם מגדל" type="text" value="" disabled class="moaginput">
+             </span> 
+                
+            <span class="responseField col-md-4" style="display: inline-block; width: 25%;" id="CONTROL2_SHEM_ISHUV_0_container">
+                <label for="CONTROL2_SHEM_ISHUV_0" style="color:#696969"> 
+                    <nobr>
+                        ישוב 
+                    </nobr> 
+                </label> 
+                <input style="text-align: right;" id="cities">
+            </span>      
+        </div>  
+          
+        </form> 
+       </div> 
+      </div> 
+      <div id="responsePart" name="responsePart"> 
+       <div id="spacerAbovePopups" style="height:30px"></div> 
+      </div> 
+      <div class="row">
+          <div class="col-md-6">
+                <button id="back" class="btn btn-danger" style="width: 98.0% !important"> חזרה </button> 
+          </div>
+          <div class="col-md-6">
+                <button id="סימון" class="btn btn-success" style="width: 98.0% !important"> סימון </button>
+          </div>
+      </div>
+      
+     </div> 
+    </div> 
+   </div> 
+   <!-- Info popup - single OK button --> 
+   <div data-role="popup" id="infoPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;"> 
+    <div data-role="header" data-theme="a"> 
+     <h1 id="infoPopupTitle"></h1> 
+    </div> 
+    <div role="main" class="ui-content"> 
+     <p id="infoPopupMessage"></p> 
+     <span style="padding: 1px;"></span> 
+     <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back">OK</a> 
+    </div> 
+   </div> 
+   <!-- Confirm popup - OK, Cancel buttons --> 
+   <div data-role="popup" id="confirmPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;"> 
+    <div data-role="header" data-theme="a"> 
+     <h1 id="confirmPopupTitle"></h1> 
+    </div> 
+    <div role="main" class="ui-content"> 
+     <p id="confirmPopupMessage"></p> 
+     <div style="padding: 10px;"></div> 
+     <a id="confirmPopupOk" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">OK</a> 
+     <a id="confirmPopupCancel" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a> 
+    </div> 
+   </div> 
+  </div>  
+ </body>
+</html>

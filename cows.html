@@ -1,0 +1,303 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head> 
+    <meta name="Modified" content="1525196973873"> 
+    <title>סימון</title> 
+    <!-- META --> 
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta http-equiv="Pragma" content="no-cache"> 
+    <meta http-equiv="Expires" content="0"> 
+    <meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate"> 
+    <meta http-equiv="last-modified" content="1524648298254"> 
+    <meta name="Created-By" content="AuraPlayer"> 
+    <meta name="Creation-Timestamp" content="1524648298254"> 
+    <!-- CSS imports --> 
+    <!-- Latest compiled and minified CSS --> 
+    <!--<link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile-1.4.5.min.css"> --> 
+    <!--<link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile.theme-1.4.5.min.css"> --> 
+    <link rel="stylesheet" href="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.css"> 
+    <!--<link rel="stylesheet" href="../../res/nativeDroid/css/nativedroid2.css"> --> 
+    <!--<link rel="stylesheet" href="../../res/bootstrap/css/bootstrap.min.css"> --> 
+    <!--<link rel="stylesheet" href="../../res/auraplayer/android.css"> --> 
+    <!--<link rel="stylesheet" href="../../res/auraplayer/hamburger.css"> --> 
+    <!-- Javascript imports --> 
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>  -->
+    <!-- <script type="text/javascript" src="lib/pikaday.js"></script>  -->
+    <!-- Include Date Range Picker --> 
+    <script type="text/javascript" src="../../res/jquery/jquery.min.js"></script> 
+    <script type="text/javascript" src="js/core.min.js"></script>
+    
+    <!-- <script type="text/javascript" src="../../res/jquery/jquery-dateFormat.min.js"></script>  -->
+    <!--<script type="text/javascript" src="../../res/jquery/jquery-dateFormat.min.js"></script> --> 
+    <script type="text/javascript" src="../../res/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.js"></script>
+    <!-- <script type="text/javascript" src="https://unpkg.com/sweetalert2@7.19.3/dist/sweetalert2.all.js"></script> -->
+    <!--<script type="text/javascript" src="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.js"></script> --> 
+    <!--<script type="text/javascript" src="../../res/nativeDroid/js/nativedroid2.js"></script> --> 
+    <!-- <script type="text/javascript" src="../../res/bootstrap/js/bootstrap.min.js"></script> --> 
+    <!-- AuraPlayer imports --> 
+    <script type="text/javascript" src="../../res/dist/auraplayer.js"></script> 
+    <script type="text/javascript" src="js/app.common.js"></script> 
+    <script type="text/javascript" src="js/cows1.js"></script> 
+    <!-- <script type="text/javascript" src="json/handlerMap_1524648298254.json"></script> 
+    <script type="text/javascript" src="js/custom_js_1524648298254.js"></script>  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+    <!-- Optional theme --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> 
+    <!-- Latest compiled and minified JavaScript --> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css"> 
+
+    <link rel="stylesheet" href="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/css/bootstrap-datetimepicker.css">
+
+    <style>
+                @media (max-width: 550px) {
+    #pageTitle {
+        margin-left: 120px;
+        text-align: left !important;
+    }
+    }
+
+    body {
+        background-color: #D6EAF8 !important;
+    }
+
+    .moaginput{
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid whitesmoke;
+        text-align: right;
+    }
+    .moagselect{
+        width: 100%;
+        border: none;
+        background-color: transparent;
+        border-bottom: 2px solid whitesmoke;
+    }
+    .moagtitle{
+            text-align: center!important;
+            font-size: 18px!important;
+            position: relative!important;
+            top: 14px!important;
+            color: black!important;
+        }
+    .logoImg{
+        padding:5px;
+        position: relative;
+        top: -10px;
+    }
+    .center-details{
+        max-width: 800px;
+    }
+    .align-second{
+        position: relative;
+        left: 45px;
+    }
+
+
+            </style> 
+    </head> 
+    <body dir="RTL" id="mainBody"> 
+    <script type="text/javascript">
+
+    
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            $('.ui-loader').hide();
+        });
+        
+        var showStatusMessages = false;
+        var origRequestFields;
+        var numOfCows = 0;
+        
+        verifyLogin();
+
+        function addCow(e){
+            console.log(e);
+            var cowHtml = '<div style="margin-top:10px;" class="cow_'+numOfCows+'">'+ 
+            '<div class="row">'+ 
+                '<div class="col-md-4">'+ 
+                    '<label for="ROSH_BALHAIM_MSP_ZIHUY_'+numOfCows+'" style="color:#696969"> מספר תווית כולל ספרת ביקורת </label>'+ 
+                    '<input id="ROSH_BALHAIM_MSP_ZIHUY_'+numOfCows+'" name="מספר תווית כולל ספרת ביקורת" type="text" value="" maxlength="9" class="moaginput">'+
+                '</div>'+ 
+                '<div id="sandbox-container" class="col-md-2 align-second">'+ 
+                    '<label for="ROSH_BALHAIM_TAR_LEYDA_'+numOfCows+'" style="color:#696969"> תא לידה </label> <br/>'+
+                    '<input type="text" class="datepicker_'+numOfCows+' moaginput ROSH_BALHAIM_TAR_LEYDA_'+numOfCows+'" size="14" >'+ 
+                '</div>'+
+                '<div class="col-md-2">'+
+                    '<label for="ROSH_BALHAIM_GEZA_'+numOfCows+'" style="color:#696969"> גזע </label>'+
+                    '<br>'+ 
+                    '<select class="moagselect ROSH_BALHAIM_GEZA_'+numOfCows+'"> <option value="2">*</option> <option value="1">בשר</option> <option value="0">חלב</option> </select>'+
+                '</div>'+ 
+                '<div class="col-md-2">'+
+                    '<label for="ROSH_BALHAIM_MIN_RB_'+numOfCows+'" style="color:#696969"> מין </label>'+ 
+                    '<select class="moagselect ROSH_BALHAIM_MIN_RB_'+numOfCows+'"> <option value="2">*</option> <option value="0">זכר</option> <option value="1">נקבה</option> </select>'+ 
+                '</div>'+ 
+                '<div class="col-md-2">'+ 
+                    '<button id="add_'+numOfCows+'" class="btn btn-success addCow" onclick="addCow(this)" style="width:40%"> + </button>'+ 
+                    '<button id="omit_'+numOfCows+'" onclick="removeCow(this)" class="btn btn-info removeCow" style="width:40%;margin-right:5px;"> - </button>'+ 
+                '</div>'+ 
+                '</div>'+ 
+            '</div>';
+       
+            $('.cow-container').append(cowHtml);
+            $( '.datepicker_'+numOfCows ).datepicker({ dateFormat: 'dd/mm/yy' });
+            numOfCows++;
+        }
+
+        function verifyLogin(){
+            var user = sessionStorage.getItem('CONTROL2_PASSWORD_0');
+            if (!user) navigate('Login.html');
+        }
+
+        function removeCow(e) {
+            if (numOfCows === 1) return;
+            var cow = $(e);
+            var removeId = cow.attr('id');
+            var cowId = removeId.split('_')[1];
+            $('.cow_'+cowId).remove();
+            numOfCows--;
+        }
+        
+        $(function () {
+            console.log('keep alive');
+            populateField("keepAlive", true);
+            for (var i=0; i<6; i++){
+                addCow();
+            }
+            origRequestFields = $('#requestFields').clone();
+            validateRequiredFields();
+            
+            $('input').on('input blur', function() {
+                setTimeout(validateRequiredFields, 200);
+            });
+        });
+        
+        
+        function showInputScreen() {
+            setDefaultValues();
+            refreshInputElements();
+            $("#requestPart").show();
+            $("#responsePart").hide();
+            clearOutputFields();
+        }
+        
+        //handler for request sent
+        function sendRequestHandler() {
+            document.getElementById("responsePart").style.display = 'none';
+            spinner().start("Executing..", "a");
+        }
+        
+        //handler for response received
+        function receiveResponseHandler(response, serviceName, status, populateFields) {
+            spinner().stop();
+            if (typeof(populateFields) === 'undefined' || populateFields) {
+                document.getElementById("responsePart").style.display = '';
+                validateRequiredFields();
+            }
+        }
+        
+        //init function
+        $(function () {
+            removeDuplicatedFields();    
+        });
+
+    </script> 
+    <nav class="navbar navbar-default"> 
+        <div class="container-fluid moagtitle">
+            סימון 
+            <div class="navbar-header logoImg"> 
+            <a class="navbar-brand "> </a>
+            <a href="javascript:navigate('Login.html')"><img src="../../www/img/moag.png" width="120px"></a>  
+            </div> 
+        </div> 
+    </nav> 
+    <br>
+    <br>
+    <br> 
+    <div data-role="main" class="ui-content"> 
+        <div class="container center-details">
+            <div class="cow-container"> 
+            </div>
+            <div id="responsePart" name="responsePart"> 
+                <div id="spacerAbovePopups" style="height:30px"></div> 
+            </div> 
+            <div class="row">
+                <div class="col-md-6">
+                    <button id="בצע" style="width:100%" onclick="navigate('details.html')" class="btn btn-info"> חזרה </button> 
+                </div>
+                <div class="col-md-6">
+                    <button id="בצע" style="width:100%" onclick="submit()" class="btn btn-success"> בצע </button> 
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <!-- Info popup - single OK button --> 
+    <div data-role="popup" id="infoPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;"> 
+        <div data-role="header" data-theme="a"> 
+        <h1 id="infoPopupTitle"></h1> 
+        </div> 
+        <div role="main" class="ui-content"> 
+        <p id="infoPopupMessage"></p> 
+        <span style="padding: 1px;"></span> 
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back">OK</a> 
+        </div> 
+    </div> 
+    <!-- Confirm popup - OK, Cancel buttons --> 
+    <div data-role="popup" id="confirmPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;"> 
+        <div data-role="header" data-theme="a"> 
+        <h1 id="confirmPopupTitle"></h1> 
+        </div> 
+        <div role="main" class="ui-content"> 
+        <p id="confirmPopupMessage"></p> 
+        <div style="padding: 10px;"></div> 
+        <a id="confirmPopupOk" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">OK</a> 
+        <a id="confirmPopupCancel" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a> 
+        </div> 
+    </div> 
+    <script src="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/js/bootstrap-datetimepicker.js"></script>
+    
+    <div class="modal" id="successModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="successmsg"></p>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="errorModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="errormsg"></p>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+            </div>
+            </div>
+        </div>
+    </div>       
+    </body>
+    
+</html>

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta name="Modified" content="1525853894676"> 
+  <title>transfer</title> 
+  <!-- META --> 
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta http-equiv="Pragma" content="no-cache"> 
+  <meta http-equiv="Expires" content="0"> 
+  <meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate"> 
+  <meta http-equiv="last-modified" content="1525853894676"> 
+  <meta name="Created-By" content="AuraPlayer"> 
+  <meta name="Creation-Timestamp" content="1525853894676"> 
+  <!-- CSS imports --> 
+  <link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile-1.4.5.min.css"> 
+  <link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile.theme-1.4.5.min.css"> 
+  <link rel="stylesheet" href="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.css"> 
+  <link rel="stylesheet" href="../../res/nativeDroid/css/nativedroid2.css"> 
+  <link rel="stylesheet" href="../../res/bootstrap/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+  <!-- <link rel="stylesheet" href="../../res/auraplayer/android.css"> 
+  <link rel="stylesheet" href="../../res/auraplayer/hamburger.css">  -->
+  <!-- Javascript imports --> 
+  <script type="text/javascript" src="../../res/jquery/jquery.min.js"></script> 
+  <script type="text/javascript" src="../../res/jquery/jquery-dateFormat.min.js"></script> 
+  <script type="text/javascript" src="../../res/jqueryMobile/jquery.mobile-1.4.5.min.js"></script> 
+  <script type="text/javascript" src="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.js"></script> 
+  <script type="text/javascript" src="../../res/nativeDroid/js/nativedroid2.js"></script> 
+  <!-- <script type="text/javascript" src="../../res/bootstrap/js/bootstrap.min.js"></script> --> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+  <!-- AuraPlayer imports --> 
+  <script type="text/javascript" src="../../res/dist/auraplayer.js"></script> 
+  <script type="text/javascript" src="js/app.common.js"></script> 
+  <script type="text/javascript" src="json/handlerMap_1525853894676.json"></script> 
+  <script type="text/javascript" src="js/custom_js_1525853894676.js"></script> 
+  <style>
+            @media (max-width: 550px) {
+#pageTitle {
+    margin-left: 120px;
+    text-align: left !important;
+  }
+}
+
+.body {
+    background-color: #ffffff !important;
+}
+
+
+.moaginput{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid whitesmoke;
+    text-align: right;
+}
+.moagLogin{
+    width:100%;
+    margin-top:10px; 
+
+}
+.moagselect{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid whitesmoke;
+}
+.moagBtn{
+    
+    background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    height: 50px;
+    color:white;
+}
+.moagbtnDanger{
+    background-color: #ac2925;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    height: 50px;
+    color:white;
+    
+}
+.moagtitle{
+        text-align: center!important;
+        font-size: 18px!important;
+        position: relative!important;
+        top: 14px!important;
+        color: black!important;
+    }
+.logoImg{
+    padding:5px;
+    position: relative;
+    top: -10px;
+}
+.moagcity{
+    background-color: transparent!important;
+    border: none!important;
+    border-bottom: 2px solid whitesmoke!important;
+}
+.moagdrop{
+    overflow-y: scroll;
+    height: 300px;
+}
+.ui-autocomplete{
+    position:relative!important;
+    height: 150px!important;
+    overflow-y: scroll!important;
+}
+.center-details{
+    max-width: 800px;
+}
+.part-border {
+    border: 1px solid #00812f;
+    border-radius: 7px;
+
+}
+.output_value{
+    text-align: right!important;
+}
+.moagDropDown{
+    margin-bottom: 20px;
+}
+.box-pad{
+    padding:5px;
+}
+.more-details{
+    position:relative;
+    left:20px;
+}
+.box-margin{
+    margin-bottom: 10px;
+}
+        </style> 
+ </head> 
+ <body dir="RTL" id="mainBody"> 
+  <script type="text/javascript">
+	var showStatusMessages = false;
+	var origRequestFields;
+	
+    var DATA ={
+        houses:{}
+    };
+
+	$(function () {
+	
+        var choice ='owner';
+
+        /** extra data regarding prices **/
+        //setPriceData();
+       
+        var checked = $('#CONTROL2_SW_30KM_0').is(":checked");
+        if (checked){
+            $('.mashgich').show();
+        }else{
+            $('.mashgich').hide();
+        }
+        
+        var that = this;
+        $('#owner').click(function(){
+            //alert('owner');
+            choice = 'owner';
+            $('#dropdownMenu1').text(' מבעלים לבעלים ');
+            $('#slaughterSection').hide();
+            $('#borderSection').hide();
+            $('#ownerSection').show();
+            $( "#citiesYad" ).autocomplete({
+                source: DATA.availableCities,
+                appendTo: "#CONTROL2_SHEM_ISHUV_Yad_0_container"
+            });
+        })
+
+        $('#slauter').click(function(){
+            //alert('slauter');
+            $('#dropdownMenu1').text(' לבית מטבחיים ');    
+            $('#ownerSection').hide();
+            $('#borderSection').hide();
+            $('#slaughterSection').show();
+            choice = 'slauter';
+            $( "#citiesYad" ).autocomplete({
+                source: DATA.availableCities,
+                appendTo: "#CONTROL2_SHEM_ISHUV_Yad_0_container"
+            });
+            loadSlaughter();
+        })
+
+        $('#border').click(function(){
+            //alert('border');
+            $('#dropdownMenu1').text(' למעבר גבול '); 
+            $('#ownerSection').hide();
+            $('#slaughterSection').hide();
+            $('#borderSection').show();
+            choice = 'border';
+            $( "#citiesYad" ).autocomplete({
+                source: DATA.availableCities,
+                appendTo: "#CONTROL2_SHEM_ISHUV_Yad_0_container"
+            });
+            loadBorders();
+            loadRSP();
+            //getFromStorage();
+        })
+
+        $('#CONTROL2_SHEM_MEGADEL_YAD_BM_0').change(function(){
+            var selection = this.value;
+            var houses = DATA.houses;
+            for (var i =0 ;i < houses.length; i++){
+                if (houses[i].TEUR === selection){
+                    $('#CONTROL2_SLT_YESHUV_0').val(houses[i].SHEM)
+                }
+            }
+            
+        });
+        
+        setDatesForTransfer();
+        var mesamen = sessionStorage.getItem('CONTROL2_ZIHUY_0'); 
+        $('#CONTROL2_MESAMEN_ZH_0').val(mesamen);
+        sessionStorage.setItem('CONTROL2_SHEM_MESAMEN_0',mesamen);
+
+        callWebServiceWithAllParams("MOAG_loginUser", "",function(data){
+          console.log(data);
+          var userLocation = data.Response.MOAG_loginUserElements.CONTROL2_SHEM_ISHUV_0;
+          $( "#cities" ).val(userLocation);
+          setTimeout(loadCities, 30);
+        }, function(){alert("Please enter a valid user")})
+
+
+        $('#back').click(function() {
+            navigate('menu.html');
+        })
+
+        $('#CONTROL2_SW_30KM_0').click(function(){
+            var checked = $('#CONTROL2_SW_30KM_0').is(":checked");
+            if (checked){
+                $('.mashgich').show();
+            }else{
+                $('.mashgich').hide();
+            }
+        })
+
+        $('#reset').click(function(){
+            $('#CONTROL2_BAALIM_ZH_YAD_0').val('');
+            $('#CONTROL2_MEGADEL_ZH_YAD_0').val('');
+            $('#citiesYad').val('');
+            $('#CONTROL2_MOVIL_ZH_0').val('');
+            $('#CONTROL2_SOCHER_ZH_0').val('');
+            $('#CONTROL2_MASHGIACH_ZH_0').val('');
+            if ( choice === 'slauter'){
+                $('#CONTROL2_SHEM_MEGADEL_YAD_BM_0').val(''); 
+            }
+            if ( choice === 'border'){
+                $('#param9158').val('');
+                $('#CONTROL2_SHEM_BAALIM_YAD_RASHAP_0').val('');
+            }
+        });
+
+
+        $('#continue').click(function(){
+
+        //    var ahvara30 = $('#CONTROL2_RDG_SW_AVAR_RD_AHAVAROT_0').is(":checked");
+           var avara = $('#CONTROL2_SW_HATZHARAT_SOCHER_0').is(":checked");
+           var moreThen30 = $('#CONTROL2_SW_30KM_0').is(":checked"); 
+
+        //    localStorage.setItem('CONTROL2_RDG_SW_AVAR_RD_AHAVAROT_0',ahvara30);
+           localStorage.setItem('CONTROL2_BAALIM_ZH_YAD_0',$('#CONTROL2_BAALIM_ZH_YAD_0').val());
+           localStorage.setItem('CONTROL2_MEGADEL_ZH_YAD_0',$('#CONTROL2_MEGADEL_ZH_YAD_0').val());
+           localStorage.setItem('CONTROL2_DSP_ISHUV_YAAD_0', $('#citiesYad').val());
+           localStorage.setItem('CONTROL2_MOVIL_ZH_0', $('#CONTROL2_MOVIL_ZH_0').val());
+           localStorage.setItem('CONTROL2_SOCHER_ZH_0', $('#CONTROL2_SOCHER_ZH_0').val());
+           localStorage.setItem('CONTROL2_SW_HATZHARAT_SOCHER_0', avara);
+           localStorage.setItem('CONTROL2_MASHGIACH_ZH_0', $('#CONTROL2_MASHGIACH_ZH_0').val());
+           localStorage.setItem('CONTROL2_SW_30KM_0',$('#CONTROL2_SW_30KM_0').val(moreThen30));
+
+
+           if ( choice === 'slauter'){
+                localStorage.setItem('CONTROL2_SHEM_MEGADEL_YAD_BM_0',$('#CONTROL2_SHEM_MEGADEL_YAD_BM_0').val());    
+           }
+           if ( choice === 'border'){
+                localStorage.setItem('param9158',$('#param9158').val());
+                localStorage.setItem('CONTROL2_SHEM_BAALIM_YAD_RASHAP_0',$('#CONTROL2_SHEM_BAALIM_YAD_RASHAP_0').val());
+           }
+           localStorage.setItem('choice',choice);  
+
+           navigate('cowstransfer.html');
+        })
+	    origRequestFields = $('#requestFields').clone();
+	    setDefaultValues();
+	    initData();
+	
+	    
+	    validateRequiredFields();
+	    
+	    $('input').on('input blur', function() {
+	    	setTimeout(validateRequiredFields, 200);
+		});
+	});
+	
+
+   
+
+    function setDatesForTransfer(){
+        var currentDate = new Date()
+        var day = currentDate.getDate()
+        var month = currentDate.getMonth() + 1
+        var year = currentDate.getFullYear()
+        var today = day + "/" + month + "/" + year;
+
+        var datePlusThree = new Date(currentDate);
+        datePlusThree.setDate(datePlusThree.getDate() + 3);
+        day = datePlusThree.getDate()
+        month = datePlusThree.getMonth() + 1
+        year = datePlusThree.getFullYear()
+        datePlusThree = day + "/" + month + "/" + year;
+        $('#CONTROL2_TOKEF_0').val(today);
+        $('#CONTROL2_AD_TOKEF_0').val(datePlusThree);
+        
+
+        
+    }
+
+    function loadRSP(){
+        var avlRSP = [];
+        avlRSP.push('יו"ש');
+        avlRSP.push(' ');
+        $( "#CONTROL2_SHEM_BAALIM_YAD_RASHAP_0" ).autocomplete({
+            source: avlRSP,
+            appendTo: "#CONTROL2_SHEM_BAALIM_YAD_RASHAP_0_container"
+        });
+    }
+
+    function loadBorders(){
+        $.ajax({        
+            type: "get",
+            url:'http://devwbl.moag.gov.il:7001/ServiceManager/Macro/ExecMacro/dbGetBorder',
+            success:function(data){
+                var availableBorders = [];
+                var borders = data.Response.dbGetBorderTableArray.dbGetBorderArrayItem;
+                DATA.borders = borders;
+                for (var i=0;i < borders.length; i++){
+                    var border = borders[i];
+                    availableBorders.push(border.TEUR);
+                }
+                $( "#param9158" ).autocomplete({
+                    source: availableBorders,
+                    appendTo: "#CONTROL2_BORDER_0_container"
+                });
+            },
+            error:function(){
+
+            }
+         })
+    }
+
+    function loadSlaughter(){
+       
+         $.ajax({        
+            type: "get",
+            url:'http://devwbl.moag.gov.il:7001/ServiceManager/Macro/ExecMacro/dbGetSlauter',
+            success:function(data){
+                var availableHouses = [];
+                var houses = data.Response.dbGetSlauterTableArray.dbGetSlauterArrayItem;
+                DATA.houses = houses;
+                for (var i=0;i < houses.length; i++){
+                    var house = houses[i];
+                    availableHouses.push(house.TEUR);
+                }
+                $( "#CONTROL2_SHEM_MEGADEL_YAD_BM_0" ).autocomplete({
+                    source: availableHouses,
+                    appendTo: "#CONTROL2_SLT_ZH_0_container"
+                });
+            },
+            error:function(){
+
+            }
+         })
+    }
+
+    function loadBorder(){
+       
+       $.ajax({        
+          type: "get",
+          url:'http://devwbl.moag.gov.il:7001/ServiceManager/Macro/ExecMacro/dbGetBorder',
+          success:function(data){
+
+          },
+          error:function(){
+
+          }
+       })
+  }
+
+    function loadCities() {
+        var userName = sessionStorage.getItem('CONTROL2_USERNAME_0');
+        var userPass = sessionStorage.getItem('CONTROL2_PASSWORD_0');
+        var userZihuy = sessionStorage.getItem('CONTROL2_ZIHUY_0');
+         $.ajax({        
+            type: "get",
+            url:"http://devwbl.moag.gov.il:7001/ServiceManager/Macro/ExecMacro/MOAG_getCityLOV?CONTROL2_USERNAME_0="+userName+ "&CONTROL2_PASSWORD_0="+userPass+"&CONTROL2_ZIHUY_0="+userZihuy,
+            success:function(data){
+                console.log(data);
+                var availableCities = [];
+                var cites = data.Response.MOAG_getCityLOVTableArray.MOAG_getCityLOVArrayItem;
+                for (var i=0;i < cites.length; i++){
+                    var city = cites[i];
+                    availableCities.push(city.LOV_ISHUV);
+                }
+                DATA.availableCities = availableCities;
+                $( "#cities" ).autocomplete({
+                    source: availableCities,
+                    appendTo: "#CONTROL2_SHEM_ISHUV_0_container"
+                });
+                $( "#citiesYad" ).autocomplete({
+                    source: availableCities,
+                    appendTo: "#CONTROL2_SHEM_ISHUV_YAD_0_container"
+                });
+                deleteLOV("LOV",cites.length );        
+            },
+            error:function(XMLHttpRequest,status,error){
+                    //do nothing
+            }
+    });//ajax
+      
+     
+    }
+	var defaultValues = {};
+	defaultValues['CONTROL2_SHEM_BAALIM_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_BAALIM_ZH_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_MESAMEN_ZH_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_TEST_PROD_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_NUM_COPY_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_SHEM_MESAMEN_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_SHEM_ISHUV_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_TOTAL_RB_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_TAR_SIMUN_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_MEGADEL_ZH_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['CONTROL2_PASSWORD_0'] = {
+        value: 'Dd123456',
+        type: 'password'
+    };
+
+	defaultValues['CONTROL2_SHEM_MEGADEL_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	defaultValues['TOOLBAR_DSP_USERNAME_0'] = {
+        value: null,
+        type: 'text'
+    };
+
+	
+	
+	function showInputScreen() {
+	    setDefaultValues();
+	    refreshInputElements();
+	
+	    $("#requestPart").show();
+	    $("#responsePart").hide();
+	
+	    clearOutputFields();
+	}
+	
+	//handler for request sent
+	function sendRequestHandler() {
+	    document.getElementById("responsePart").style.display = 'none';
+	    spinner().start("Executing..", "a");
+	}
+	
+	//handler for response received
+	function receiveResponseHandler(response, serviceName, status, populateFields) {
+	    spinner().stop();
+	
+	    if (typeof(populateFields) === 'undefined' || populateFields) {
+	        //show output params
+	
+	        document.getElementById("responsePart").style.display = '';
+	        validateRequiredFields();
+	    }
+	}
+	
+    //init function
+    $(function () {
+        removeDuplicatedFields();
+    });
+</script> 
+  <div id="mainPage" data-role="page" data-theme="a" class="background-stretch" style="background-image: url('../../www/img/bg_homepage_Img.jpg')"> 
+ 
+   <nav class="navbar navbar-default"> 
+    <div class="container-fluid moagtitle">
+        סמנים 
+        <div class="navbar-header logoImg"> 
+        <a class="navbar-brand"> </a> 
+        <a href="javascript:navigate('Login.html')"><img src="../../www/img/moag.png" width="120px"></a> 
+        </div> 
+    </div> 
+    </nav> 
+    
+
+   <div data-role="main" class="ui-content"> 
+    <div class="container"> 
+     <!-- <div class="row" style="padding: 12px 8px"> 
+      <div style="font-size: 20px; font-family: arial,serif;color:#ffffff"></div> 
+     </div>  -->
+     <div> 
+      <div id="requestPart" name="requestPart"> 
+
+       <div class="row">
+           <div class="col-md-4 col-md-offset-4">
+                <div class="dropdown moagDropDown" >
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            מבעלים לבעלים
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" style="width: 100%; padding: 10px;" aria-labelledby="dropdownMenu1">
+                        <li><a id="owner" href="#">מבעלים לבעלים</a></li>
+                        <li><a id="slauter" href="#">לבית מטבחיים</a></li>
+                        <li><a id="border" href="#">למעבר גבול</a></li>
+                    </ul>
+                </div>
+           </div>
+       </div> 
+       <form > 
+        <div class="row box-margin"  id="requestFields" > 
+
+            <div class="part-border col-md-5 pull-right box-pad ">
+
+                <div class="row">    
+                    
+                    <span class="responseField" class="col-md-6" id="CONTROL2_BAALIM_ZH_0_container">
+                        <label for="CONTROL2_BAALIM_ZH_0" style="color:#696969"> 
+                            <nobr>
+                                ת.ז. בעלים
+                            </nobr>
+                        </label>
+                        <input id="CONTROL2_BAALIM_ZH_0" name="ת.ז. בעלים" type="text" value="" class="output_value">
+                    </span>
+
+                    <span class="responseField col-md-6" id="CONTROL2_SHEM_BAALIM_0_container">
+                        <label for="CONTROL2_SHEM_BAALIM_0" style="color:#696969"> 
+                            <nobr>
+                                שם בעלים
+                            </nobr>
+                        </label>
+                        <input id="CONTROL2_SHEM_BAALIM_0" name="שם בעלים" type="text" value="" class="output_value">
+                    </span> 
+                </div>
+
+                <div class="row">
+                    <span class="responseField col-md-6"  id="CONTROL2_MEGADEL_ZH_0_container">
+                            <label for="CONTROL2_MEGADEL_ZH_0" style="color:#696969"> 
+                            <nobr>
+                                ת.ז. מגדל
+                            </nobr>
+                        </label>
+                        <input id="CONTROL2_MEGADEL_ZH_0" name="ת.ז. מגדל" type="text" value="" class="output_value">
+                    </span> 
+                    <span class="responseField col-md-6"  id="CONTROL2_SHEM_MEGADEL_0_container">
+                        <label for="CONTROL2_SHEM_MEGADEL_0" style="color:#696969"> 
+                            <nobr>
+                                שם מגדל
+                            </nobr> 
+                        </label> 
+                        <input id="CONTROL2_SHEM_MEGADEL_0" name="שם מגדל" type="text" value="" class="output_value">
+                    </span> 
+                </div>
+
+                <div class="row">
+                    <span class="responseField col-md-6" style="display: inline-block; width: 98.0%" id="CONTROL2_SHEM_ISHUV_0_container"> 
+                        <label for="CONTROL2_SHEM_ISHUV_0" style="color:#696969"> 
+                            <nobr>
+                                ישוב
+                            </nobr>
+                        </label>
+                        <input id="cities">
+                        <!-- <input id="CONTROL2_SHEM_ISHUV_0" name="ישוב" type="text" value="" class="output_value"> -->      
+                    </span> 
+                </div>
+            </div>
+
+            <!-- end of md-6  מבעלים לבעלים-->
+            <div id="ownerSection" style="display:block;margin-right:10px;" class="part-border col-md-5 pull-left box-pad ">
+                <div class="row">
+                    
+                    <span class="responseField" class="col-md-6" id="CONTROL2_BAALIM_ZH_0_container">
+                        <label for="CONTROL2_BAALIM_ZH_YAD_0" style="color:#696969"> 
+                            <nobr>
+                                ת.ז. בעלים
+                            </nobr>
+                        </label>
+                        <input id="CONTROL2_BAALIM_ZH_YAD_0" name="ת.ז. בעלים" type="text" value="" class="output_value">
+                    </span>
+                    
+                    <span class="responseField col-md-6" id="CONTROL2_SHEM_BAALIM_0_container">
+                        <label for="CONTROL2_SHEM_BAALIM_0" style="color:#696969"> 
+                            <nobr>
+                                שם בעלים
+                            </nobr>
+                        </label>
+                        <input id="CONTROL2_SHEM_BAALIM_0" name="שם בעלים" type="text" value="" class="output_value">
+                    </span> 
+                </div>
+                <div class="row">
+                    <span class="responseField col-md-6"  id="CONTROL2_MEGADEL_ZH_0_container">
+                            <label for="CONTROL2_MEGADEL_ZH_YAD_0" style="color:#696969"> 
+                            <nobr>
+                                ת.ז. מגדל
+                            </nobr>
+                        </label>
+                        <input id="CONTROL2_MEGADEL_ZH_YAD_0" name="ת.ז. מגדל" type="text" value="" class="output_value">
+                    </span> 
+
+                    <span class="responseField col-md-6"  id="CONTROL2_SHEM_MEGADEL_0_container">
+                        <label for="CONTROL2_SHEM_MEGADEL_0" style="color:#696969"> 
+                        <nobr>
+                            שם מגדל
+                        </nobr> 
+                    </label> 
+                    <input id="CONTROL2_SHEM_MEGADEL_0" name="שם מגדל" type="text" value="" class="output_value">
+                    </span> 
+                </div>
+                <div class="row">
+                    <span class="responseField col-md-6"  id="CONTROL2_SHEM_ISHUV_YAD_0_container"> 
+                        <label for="CONTROL2_SHEM_ISHUV_0" style="color:#696969"> 
+                            <nobr>
+                                ישוב
+                            </nobr>
+                        </label>
+                        <input id="citiesYad">
+                        <!-- <input id="CONTROL2_DSP_ISHUV_0" name="ישוב" type="text" value="" class="output_value"> -->
+                    </span> 
+                </div>
+            </div>
+            <!-- מטבחיים -->
+            <div id="slaughterSection" style="display:none;margin-right:10px;" class="part-border col-md-5 pull-left box-pad ">
+                <div class="row">
+                    
+                    <span class="responseField" class="col-md-6" id="CONTROL2_SLT_ZH_0_container">
+                        <label for="CONTROL2_SHEM_MEGADEL_YAD_BM_0" style="color:#696969"> 
+                            <nobr>
+                               בית מטבחיים
+                            </nobr>
+                        </label>
+                        <input id="CONTROL2_SHEM_MEGADEL_YAD_BM_0" class="output_value">
+                    </span>
+                    
+                    <span class="responseField col-md-6" id="CONTROL2_SHEM_BAALIM_0_container">
+                        <label for="CONTROL2_SLT_YESHUV_0" style="color:#696969"> 
+                            <nobr>
+                                ישוב
+                            </nobr>
+                        </label>
+                        <!-- <input id="citiesYad"> -->
+                        <input id="CONTROL2_DSP_ISHUV_YAAD_0" type="text" value="" class="output_value">
+                    </span> 
+                </div>
+               
+            </div>
+            <!-- גבול-->
+            <div id="borderSection" style="display:none;margin-right:10px;" class="part-border col-md-5 pull-left box-pad ">
+                <div class="row">
+                    
+                    <span class="responseField" class="col-md-6" id="CONTROL2_SHEM_BAALIM_YAD_RASHAP_0_container">
+                        <label for="CONTROL2_BAALIM_ZH_YAD_0" style="color:#696969"> 
+                            <nobr>
+                                רש"פ
+                            </nobr>
+                        </label>
+                        <input id="CONTROL2_SHEM_BAALIM_YAD_RASHAP_0" name="ת.ז. בעלים" type="text" value="" class="output_value">
+                    </span>
+                    
+                    <span class="responseField col-md-6" id="CONTROL2_BORDER_0_container">
+                        <label for="param9158" style="color:#696969"> 
+                            <nobr>
+                                מעבר גבול
+                            </nobr>
+                        </label>
+                        <input id="param9158" type="text" value="" class="output_value">
+                    </span> 
+                </div>
+                <div class="row">
+                   
+                    <span class="responseField col-md-6"  id="CONTROL2_SHEM_ISHUV_0_container"> 
+                        <label for="CONTROL2_SHEM_ISHUV_0" style="color:#696969"> 
+                            <nobr>
+                                ישוב
+                            </nobr>
+                        </label>
+                        <!-- <input id="citiesYad"> -->
+                        <input id="CONTROL2_DSP_ISHUV_YAAD_0" name="ישוב" type="text" value="יהודה ושומרון" class="output_value" disabled>
+                    </span> 
+                   
+                </div>
+            </div>
+
+        </form> 
+       </div> 
+       <div class="row">
+           <div class="col-md-10">
+                <div class="part-border more-details box-pad">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="CONTROL2_MOVIL_ZH_0" style="color:#696969"> 
+                                <nobr>
+                                    ת.ז. מוביל
+                                </nobr>
+                            </label>
+                            <input id="CONTROL2_MOVIL_ZH_0" name="ת.ז. בעלים" type="text" value="" class="">
+                        </div>
+        
+                        <div class="col-md-3">
+                            <label for="CONTROL2_BAALIM_ZH_0" style="color:#696969"> 
+                                <nobr>
+                                    שם מוביל
+                                </nobr>
+                            </label>
+                            <input id="CONTROL2_BAALIM_ZH_0" name="ת.ז. בעלים" type="text" value="" class="">
+                        </div>
+        
+                        <div class="col-md-3">
+                            <label for="CONTROL2_BAALIM_ZH_0" style="color:#696969"> 
+                                <nobr>
+                                    מתוקף:
+                                </nobr>
+                            </label>
+                            <input id="CONTROL2_TOKEF_0"  type="text" value="" class="">
+                        </div>
+        
+                        <div class="col-md-3">
+                            <label for="CONTROL2_AD_TOKEF_0" style="color:#696969"> 
+                                <nobr>
+                                    עד תוקף
+                                </nobr>
+                            </label>
+                            <input id="CONTROL2_AD_TOKEF_0" name="ת.ז. בעלים" type="text" value="" class="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="CONTROL2_SOCHER_ZH_0" style="color:#696969"> 
+                                <nobr>
+                                ת.ז סוחר
+                                </nobr>
+                            </label>
+                            <input id="CONTROL2_SOCHER_ZH_0" name="ת.ז. בעלים" type="text" value="" class="output_value">
+                        </div>
+        
+                        <div class="col-md-3">
+                            <label for="CONTROL2_BAALIM_ZH_0" style="color:#696969"> 
+                                <nobr>
+                                    שם סוחר
+                                </nobr>
+                            </label>
+                            <input id="CONTROL2_BAALIM_ZH_0" name="ת.ז. בעלים" type="text" value="" class="output_value">
+                        </div>
+        
+                        <div class="col-md-3 mashgich">
+                            <label for="CONTROL2_MASHGIACH_ZH_0" style="color:#696969"> 
+                                <nobr>
+                                    תז משגיח
+                                </nobr>
+                            </label>
+                            <input id="CONTROL2_MASHGIACH_ZH_0" name="ת.ז. בעלים" type="text" value="" class="output_value">
+                        </div>
+        
+                        <div class="col-md-3 mashgich">
+                            <label for="CONTROL2_BAALIM_ZH_0" style="color:#696969"> 
+                                <nobr>
+                                שם משגח
+                                </nobr>
+                            </label>
+                            <input id="CONTROL2_BAALIM_ZH_0" name="ת.ז. בעלים" type="text" value="" class="output_value">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                           
+                                <div class="col-md-1">
+                                        <input id="CONTROL2_SW_HATZHARAT_SOCHER_0" class="pull-right" type="checkbox" aria-label="...">
+                                </div>
+                                <div class="col-md-11">
+                                        <span>אישור סוחר להעברה</span>
+                                </div>
+                           
+                        </div>
+                        <div class="col-md-6"  style="float: right;">
+                            <div class="col-md-6">
+                                
+                                    <div class="col-md-1">
+                                        <input type="checkbox" id="CONTROL2_SW_30KM_0" class="pull-right" aria-label="...">
+                                    </div>
+                                    <div class="col-md-11">
+                                            <span>נסיעה מעל 30 ק"מ</span>
+                                    </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+          
+       </div>
+      
+     
+      <div class="row" style="margin-top: 10px;">
+          <div class="col-md-4">
+            <button id="back" style="background-color:#d9534f;color:white" class="btn btn-success" > חזרה </button> 
+          </div>
+          <div class="col-md-4">
+            <button id="continue" style="background-color:#419641;color:white;" class="btn btn-info"> המשך </button> 
+        </div>
+        <div class="col-md-4">
+            <button id="reset" style="background-color:#d9534f;color:white;" class="btn btn-info"> אפס </button> 
+        </div>
+      </div>
+      
+     </div> 
+    </div> 
+   </div> 
+   <div id="leftpanel" data-role="panel" data-display="overlay" data-position-fixed="true"> 
+    <span id="hamburger-title">Menu</span> 
+    <a href="#" id="hamburger-close" class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-rel="close"></a> 
+    <ul data-role="listview" style="margin-top: 45px"> 
+     <li data-icon="ui-icon-blank"><a href="newPassword.html" data-ajax="false">שינוי סיסמא</a></li> 
+     <li data-icon="ui-icon-blank"><a href="menu.html" data-ajax="false">manu</a></li> 
+     <li data-icon="ui-icon-blank"><a href="transfer.html" data-ajax="false">transfer</a></li> 
+     <li data-icon="ui-icon-blank"><a href="cowstransfer.html" data-ajax="false">cowstransfer</a></li> 
+    </ul> 
+   </div> 
+   <!-- Info popup - single OK button --> 
+   <div data-role="popup" id="infoPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;"> 
+    <div data-role="header" data-theme="a"> 
+     <h1 id="infoPopupTitle"></h1> 
+    </div> 
+    <div role="main" class="ui-content"> 
+     <p id="infoPopupMessage"></p> 
+     <span style="padding: 1px;"></span> 
+     <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back">OK</a> 
+    </div> 
+   </div> 
+   <!-- Confirm popup - OK, Cancel buttons --> 
+   <div data-role="popup" id="confirmPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;"> 
+    <div data-role="header" data-theme="a"> 
+     <h1 id="confirmPopupTitle"></h1> 
+    </div> 
+    <div role="main" class="ui-content"> 
+     <p id="confirmPopupMessage"></p> 
+     <div style="padding: 10px;"></div> 
+     <a id="confirmPopupOk" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">OK</a> 
+     <a id="confirmPopupCancel" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a> 
+    </div> 
+   </div> 
+  </div>   
+ </body>
+</html>
