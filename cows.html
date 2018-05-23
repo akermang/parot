@@ -52,49 +52,130 @@
 
     <link rel="stylesheet" href="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/css/bootstrap-datetimepicker.css">
 
-    <style>
-                @media (max-width: 550px) {
-    #pageTitle {
-        margin-left: 120px;
-        text-align: left !important;
-    }
+<style>
+body {
+    height: 100%;
+    font-size: 18px;
+}
+
+.ad-cow-btn {
+    width: 40%;
+    margin: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    outline: none;
+}
+
+header.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ccc8d2;
+    min-height: 50px;
+}
+
+div.logoImg {
+    flex: 2;
+    margin: 0 10px;
+    padding: 5px;
+}
+
+.logoImg img {
+    max-height: 10vh;
+}
+
+div.title {
+    flex: 8;
+    font-size: 1.75em;
+    position: absolute;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.ui-widget-header {
+    background: #a496b9;
+    border: 1px solid #a496b9;
+}
+div.ap-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 991px) {
+
+ 
+
+    .ad-cow-btn {
+    width: 41%;
+    margin: 10px;
+}
+
+}
+    @media (max-width: 550px) {
+        #pageTitle {
+            margin-left: 120px;
+            text-align: left !important;
+        }
     }
 
-    body {
-        background-color: #D6EAF8 !important;
+    .main-container {
+        margin-top: 2em;
     }
-
+       
     .moaginput{
         background-color: transparent;
         border: none;
         border-bottom: 2px solid whitesmoke;
         text-align: right;
     }
+
     .moagselect{
         width: 100%;
         border: none;
         background-color: transparent;
         border-bottom: 2px solid whitesmoke;
     }
-    .moagtitle{
-            text-align: center!important;
-            font-size: 18px!important;
-            position: relative!important;
-            top: 14px!important;
-            color: black!important;
-        }
-    .logoImg{
-        padding:5px;
-        position: relative;
-        top: -10px;
-    }
+   
     .center-details{
-        max-width: 800px;
-    }
+        max-width: 1224px;
+        border: 1px solid #a496b9;
+        border-radius: 12px;
+        padding: 2em;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+}
     .align-second{
         position: relative;
         left: 45px;
     }
+
+@media(max-width: 600px) {
+
+.logoImg img {
+    width: 30%;
+}
+
+
+button.ap-btn.ap-btn-md {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.center-details {
+    border: none;
+    box-shadow: none;
+}
+}
+
+@media(max-width: 400px) {
+    div.title {
+        font-size: 1.5em;
+    }
+}
 
 
             </style> 
@@ -112,32 +193,32 @@
         var origRequestFields;
         var numOfCows = 0;
         
-        verifyLogin();
+        // verifyLogin();
 
         function addCow(e){
             console.log(e);
             var cowHtml = '<div style="margin-top:10px;" class="cow_'+numOfCows+'">'+ 
             '<div class="row">'+ 
-                '<div class="col-md-4">'+ 
-                    '<label for="ROSH_BALHAIM_MSP_ZIHUY_'+numOfCows+'" style="color:#696969"> מספר תווית כולל ספרת ביקורת </label>'+ 
+                '<div class="col-md-4 col-sm-12">'+ 
+                    '<label for="ROSH_BALHAIM_MSP_ZIHUY_'+numOfCows+'"> מספר תווית כולל ספרת ביקורת </label>'+ 
                     '<input id="ROSH_BALHAIM_MSP_ZIHUY_'+numOfCows+'" name="מספר תווית כולל ספרת ביקורת" type="text" value="" maxlength="9" class="moaginput">'+
                 '</div>'+ 
-                '<div id="sandbox-container" class="col-md-2 align-second">'+ 
-                    '<label for="ROSH_BALHAIM_TAR_LEYDA_'+numOfCows+'" style="color:#696969"> תא לידה </label> <br/>'+
+                '<div id="sandbox-container" class="col-md-2 col-sm-12">'+ 
+                    '<label for="ROSH_BALHAIM_TAR_LEYDA_'+numOfCows+'"> תא לידה </label> <br/>'+
                     '<input type="text" class="datepicker_'+numOfCows+' moaginput ROSH_BALHAIM_TAR_LEYDA_'+numOfCows+'" size="14" >'+ 
                 '</div>'+
-                '<div class="col-md-2">'+
-                    '<label for="ROSH_BALHAIM_GEZA_'+numOfCows+'" style="color:#696969"> גזע </label>'+
+                '<div class="col-md-2 col-sm-12">'+
+                    '<label for="ROSH_BALHAIM_GEZA_'+numOfCows+'"> גזע </label>'+
                     '<br>'+ 
                     '<select class="moagselect ROSH_BALHAIM_GEZA_'+numOfCows+'"> <option value="2">*</option> <option value="1">בשר</option> <option value="0">חלב</option> </select>'+
                 '</div>'+ 
-                '<div class="col-md-2">'+
-                    '<label for="ROSH_BALHAIM_MIN_RB_'+numOfCows+'" style="color:#696969"> מין </label>'+ 
+                '<div class="col-md-2 col-sm-12">'+
+                    '<label for="ROSH_BALHAIM_MIN_RB_'+numOfCows+'"> מין </label>'+ 
                     '<select class="moagselect ROSH_BALHAIM_MIN_RB_'+numOfCows+'"> <option value="2">*</option> <option value="0">זכר</option> <option value="1">נקבה</option> </select>'+ 
                 '</div>'+ 
-                '<div class="col-md-2">'+ 
-                    '<button id="add_'+numOfCows+'" class="btn btn-success addCow" onclick="addCow(this)" style="width:40%"> + </button>'+ 
-                    '<button id="omit_'+numOfCows+'" onclick="removeCow(this)" class="btn btn-info removeCow" style="width:40%;margin-right:5px;"> - </button>'+ 
+                '<div class="col-md-2 col-sm-12 ap-btn-container">'+ 
+                    '<button id="add_'+numOfCows+'" class="btn ad-cow-btn btn-success addCow" onclick="addCow(this)"> + </button>'+ 
+                    '<button id="omit_'+numOfCows+'" onclick="removeCow(this)" class="btn ad-cow-btn btn-info removeCow"> - </button>'+ 
                 '</div>'+ 
                 '</div>'+ 
             '</div>';
@@ -205,99 +286,96 @@
         });
 
     </script> 
-    <nav class="navbar navbar-default"> 
-        <div class="container-fluid moagtitle">
-            סימון 
-            <div class="navbar-header logoImg"> 
-            <a class="navbar-brand "> </a>
-            <a href="javascript:navigate('Login.html')"><img src="../../www/img/moag.png" width="120px"></a>  
-            </div> 
-        </div> 
-    </nav> 
-    <br>
-    <br>
-    <br> 
-    <div data-role="main" class="ui-content"> 
-        <div class="container center-details">
-            <div class="cow-container"> 
+   <div id="mainPage" data-role="page" data-theme="a" class="background-stretch mainPage">
+        <header class="header">
+            <div class="logoImg">
+                <a href="javascript:navigate('Login.html')">
+                    <img src="../../www/img/moag.png">
+                </a>
             </div>
-            <div id="responsePart" name="responsePart"> 
-                <div id="spacerAbovePopups" style="height:30px"></div> 
-            </div> 
-            <div class="row">
-                <div class="col-md-6">
-                    <button id="בצע" style="width:100%" onclick="navigate('details.html')" class="btn btn-info"> חזרה </button> 
+            <div class="title">סימונים</div>
+        </header>
+        <div data-role="main" class="ui-content main-container">
+            <div class="container center-details">
+                <div class="cow-container">
                 </div>
-                <div class="col-md-6">
-                    <button id="בצע" style="width:100%" onclick="submit()" class="btn btn-success"> בצע </button> 
+                <div id="responsePart" name="responsePart">
+                    <div id="spacerAbovePopups"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button id="בצע" onclick="navigate('details.html')" class="btn ap-btn ap-btn-md btn-block btn-info"> חזרה </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="בצע" onclick="submit()" class="btn ap-btn ap-btn-md btn-block btn-success"> בצע </button>
+                    </div>
                 </div>
             </div>
-        </div> 
-    </div>
-
-    <!-- Info popup - single OK button --> 
-    <div data-role="popup" id="infoPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;"> 
-        <div data-role="header" data-theme="a"> 
-        <h1 id="infoPopupTitle"></h1> 
-        </div> 
-        <div role="main" class="ui-content"> 
-        <p id="infoPopupMessage"></p> 
-        <span style="padding: 1px;"></span> 
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back">OK</a> 
-        </div> 
-    </div> 
-    <!-- Confirm popup - OK, Cancel buttons --> 
-    <div data-role="popup" id="confirmPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;"> 
-        <div data-role="header" data-theme="a"> 
-        <h1 id="confirmPopupTitle"></h1> 
-        </div> 
-        <div role="main" class="ui-content"> 
-        <p id="confirmPopupMessage"></p> 
-        <div style="padding: 10px;"></div> 
-        <a id="confirmPopupOk" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">OK</a> 
-        <a id="confirmPopupCancel" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a> 
-        </div> 
-    </div> 
-    <script src="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/js/bootstrap-datetimepicker.js"></script>
+        </div>
     
-    <div class="modal" id="successModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
-                </button>
+        <!-- Info popup - single OK button -->
+        <div data-role="popup" id="infoPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;">
+            <div data-role="header" data-theme="a">
+                <h1 id="infoPopupTitle"></h1>
             </div>
-            <div class="modal-body">
-                <p class="successmsg"></p>
-            </div>
-            <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
-            </div>
+            <div role="main" class="ui-content">
+                <p id="infoPopupMessage"></p>
+                <span style="padding: 1px;"></span>
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back">OK</a>
             </div>
         </div>
-    </div>
-    <div class="modal" id="errorModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
-                </button>
+        <!-- Confirm popup - OK, Cancel buttons -->
+        <div data-role="popup" id="confirmPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;">
+            <div data-role="header" data-theme="a">
+                <h1 id="confirmPopupTitle"></h1>
             </div>
-            <div class="modal-body">
-                <p class="errormsg"></p>
-            </div>
-            <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
-            </div>
+            <div role="main" class="ui-content">
+                <p id="confirmPopupMessage"></p>
+                <div style="padding: 10px;"></div>
+                <a id="confirmPopupOk" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">OK</a>
+                <a id="confirmPopupCancel" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a>
             </div>
         </div>
-    </div>       
+        <script src="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/js/bootstrap-datetimepicker.js"></script>
+    
+        <div class="modal" id="successModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="successmsg"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="errorModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="errormsg"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
     </body>
     
 </html>
