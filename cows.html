@@ -67,6 +67,15 @@ h1 {
     text-align: center;
 }
 
+button.btn {
+    font-size: 100%;
+    font-weight: 700;
+}
+
+div.ap-btn-container {
+  margin: 10px auto;
+}
+
 input {
     outline: none;
 }
@@ -98,8 +107,8 @@ div.title {
 }
 
 .ui-widget-header {
-    background: #a496b9;
-    border: 1px solid #a496b9;
+    background: #ccc8d2;
+    border: 1px solid #ccc8d2;
 }
 div.ap-btn-container {
     display: flex;
@@ -130,7 +139,7 @@ div.ap-btn-container {
     .moaginput{
         background-color: transparent;
         border: none;
-        border-bottom: 2px solid whitesmoke;
+        border-bottom: 2px solid #ccc8d2;
         text-align: right;
     }
 
@@ -138,7 +147,7 @@ div.ap-btn-container {
         width: 100%;
         border: none;
         background-color: transparent;
-        border-bottom: 2px solid whitesmoke;
+        border-bottom: 2px solid #ccc8d2;
     }
    
     .center-details{
@@ -218,7 +227,7 @@ button.ap-btn.ap-btn-md {
                 '</div>'+ 
                 '<div class="col-md-2 col-sm-12 ap-btn-container">'+ 
                     '<button id="add_'+numOfCows+'" class="btn ad-cow-btn btn-success addCow" onclick="addCow(this)"> + </button>'+ 
-                    '<button id="omit_'+numOfCows+'" onclick="removeCow(this)" class="btn ad-cow-btn btn-info removeCow"> - </button>'+ 
+                    '<button id="omit_'+numOfCows+'" onclick="removeCow(this)" class="btn ad-cow-btn btn-danger removeCow"> - </button>'+ 
                 '</div>'+ 
                 '</div>'+ 
             '</div>';
@@ -302,12 +311,13 @@ button.ap-btn.ap-btn-md {
                 <div id="responsePart" name="responsePart">
                     <div id="spacerAbovePopups"></div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <button id="בצע" onclick="navigate('details.html')" class="btn ap-btn ap-btn-md btn-block btn-info"> חזרה </button>
-                    </div>
+                <div class="row ap-btn-container">
+                    
                     <div class="col-md-6">
                         <button id="בצע" onclick="submit()" class="btn ap-btn ap-btn-md btn-block btn-success"> בצע </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="בצע" onclick="navigate('details.html')" class="btn ap-btn ap-btn-md btn-block btn-danger"> חזרה </button>
                     </div>
                 </div>
             </div>
