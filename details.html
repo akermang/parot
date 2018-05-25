@@ -41,6 +41,17 @@ body {
     height: 100%;
     font-size: 18px;
 }
+button.pop-btn {
+    border-radius: 50%;
+    border: none;
+    background: #ffffff;
+}
+
+button.pop-btn-r {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+}
 
 h1 {
     text-align: center;
@@ -88,6 +99,26 @@ div.title {
 .ui-widget-header {
     background: #ccc8d2;
     border: 1px solid #ccc8d2;
+}
+
+div.populateLoadCitiesComponent {
+    display: none;
+    justify-content: center;
+    position: absolute;
+    top: 6em;
+    right: 0;
+    left: 0;
+    margin: auto;
+    max-width: 300px;
+    max-height: 400px;
+    overflow: auto;
+    max-height: 180px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    border: 1px solid #a496b9;
+    border-radius: 12px;
+    padding: 2em;
+    z-index: 10;
 }
 
 @media (max-width: 550px) {
@@ -197,7 +228,7 @@ color:white;
         <script type="text/javascript">
               var showStatusMessages = false;
               var origRequestFields;
-              
+              $(".populateLoadCitiesComponent").hide();
               
               $(function () {
                   origRequestFields = $('#requestFields').clone();
@@ -220,6 +251,7 @@ color:white;
           
                   $(document).ready(function() {
                      loadCities();
+                    //  populateLoadCities();
                      $("html,body").css("overflow","hidden");
                     
           
@@ -327,6 +359,35 @@ color:white;
                      
                   }, function(){console.log('not loaded');})
               }
+
+            function populateLoadCities() {
+                 callWebServiceWithAllParams("MOAG_getCityLOV", "", function(data){
+                     console.log(data);
+                     var availableCities = [];
+                     var cites = data.Response.MOAG_getCityLOVTableArray.MOAG_getCityLOVArrayItem;
+                     for (var i=0;i < cites.length; i++){
+                         var city = cites[i];
+                         availableCities.push(city.LOV_ISHUV);
+                     }
+                     $( "#PopCities" ).autocomplete({
+                          source: availableCities,
+                          appendTo: "#PopCONTROL2_SHEM_ISHUV_0_container"
+                      });
+                      deleteLOV("LOV",cites.length );
+                     
+                  }, function(){console.log('not loaded');})
+            }
+
+              function hideCityPopup() {
+                  $(".populateLoadCitiesComponent").hide("fast");
+              }
+
+              function showCityPopup() {
+                  let myEvent = jQuery.Event("keydown");
+                  myEvent.keyCode = 32;
+                  $(".populateLoadCitiesComponent").show();
+                  $("#PopCities").trigger('focus').attr('value','').trigger(myEvent);
+              }
               
               //handler for request sent
               function sendRequestHandler() {
@@ -362,6 +423,17 @@ color:white;
             </header>
             <div data-role="main" class="ui-content main-container">
                 <div class="container center-details">
+                    <div id="populateLoadCitiesComponent" class="populateLoadCitiesComponent">
+                            <span class="responseField col-sm-12 col-xs-12" id="PopCONTROL2_SHEM_ISHUV_0_container">
+                                    <button onclick="hideCityPopup()" class="btn pop-btn pop-btn-r">x</button>
+                                    <label for="CONTROL2_SHEM_ISHUV_0">
+                                        <nobr>
+                                            ישוב
+                                        </nobr>
+                                    </label>
+                                    <input  id="PopCities">
+                            </span>
+                    </div>
                     <div>
                         <div id="requestPart" name="requestPart">
                             <div class="row" id="responseField">
@@ -427,12 +499,16 @@ color:white;
                                     <input id="CONTROL2_SHEM_MEGADEL_0" name="שם מגדל" type="text" value="" disabled class="moaginput">
                                 </span>
                                 <span class="responseField col-md-4 col-sm-12 col-xs-12" id="CONTROL2_SHEM_ISHUV_0_container">
+                                    <button onclick="showCityPopup()" class="btn pop-btn">+</button>
                                     <label for="CONTROL2_SHEM_ISHUV_0">
                                         <nobr>
                                             ישוב
                                         </nobr>
                                     </label>
+                                    <span> 
                                     <input  id="cities">
+                                        
+                                    </span>                                    
                                 </span>
                             </div>
     
