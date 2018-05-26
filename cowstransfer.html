@@ -1,517 +1,672 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-<meta name="Modified" content="1525196973873"> 
-<title>סימון</title> 
-<!-- META --> 
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
-<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-<meta http-equiv="Pragma" content="no-cache"> 
-<meta http-equiv="Expires" content="0"> 
-<meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate"> 
-<meta http-equiv="last-modified" content="1524648298254"> 
-<meta name="Created-By" content="AuraPlayer"> 
-<meta name="Creation-Timestamp" content="1524648298254"> 
 
-<!-- <link rel="stylesheet" href="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.css">  -->
+<head>
+    <meta name="Modified" content="1525196973873">
+    <title>סימון</title>
+    <!-- META -->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate">
+    <meta http-equiv="last-modified" content="1524648298254">
+    <meta name="Created-By" content="AuraPlayer">
+    <meta name="Creation-Timestamp" content="1524648298254">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.css">  -->
 
-<script type="text/javascript" src="../../res/jquery/jquery.min.js"></script> 
-<script type="text/javascript" src="js/core.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
 
-
-<script type="text/javascript" src="../../res/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
-<script type="text/javascript" src="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.js"></script>
-
-<script type="text/javascript" src="../../res/dist/auraplayer.js"></script> 
-<!-- <script type="text/javascript" src="js/app.common.js"></script>  -->
+    <script type="text/javascript" src="../../res/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="js/core.min.js"></script>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
-<!-- Optional theme --> 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> 
-<!-- Latest compiled and minified JavaScript --> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
-<link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css"> 
+    <script type="text/javascript" src="../../res/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.js"></script>
 
-<link rel="stylesheet" href="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/css/bootstrap-datetimepicker.css">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-<style>
-            @media (max-width: 550px) {
-#pageTitle {
-    margin-left: 120px;
-    text-align: left !important;
-}
-}
-
-body {
-    background-color: #D6EAF8 !important;
-}
-
-.moaginput{
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid whitesmoke;
-}
-.moagselect{
-    width: 100%;
-    border: none;
-    background-color: transparent;
-    border-bottom: 2px solid whitesmoke;
-}
-.moagtitle{
-        text-align: center!important;
-        font-size: 18px!important;
-        position: relative!important;
-        top: 14px!important;
-        color: black!important;
-    }
-.logoImg{
-    padding:5px;
-    position: relative;
-    top: -10px;
-}
-.center-details{
-    max-width: 800px;
-}
-.align-second{
-    position: relative;
-    left: 45px;
-}
+    <script type="text/javascript" src="../../res/dist/auraplayer.js"></script>
+    <!-- <script type="text/javascript" src="js/app.common.js"></script>  -->
 
 
-        </style> 
-</head> 
-<body dir="RTL" id="mainBody"> 
-<script type="text/javascript">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
 
-var cowsData ={};
+    <link rel="stylesheet" href="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/css/bootstrap-datetimepicker.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-    $('.ui-loader').hide();
-
-    });
-    
-   
-    var showStatusMessages = false;
-    var origRequestFields;
-    var numOfCows = 0;
-    var initial,add,save;
-    
-    setPriceData();
-
-    function setPriceData() {
-        
-        callWebServiceWithAllParams('get_transfer_data','',function(data){
-            data = data.Response.get_transfer_dataElements;
-            $('#CONTROL_TAARIF_0').val(data.CONTROL_TAARIF_0);
-            $('#CONTROL_EMAIL_0').val(data.CONTROL_EMAIL_0);
-
-        }, function(){console.log('couldnt get data about user')})
-    }
-
-    function submit () {
-        var choice = localStorage.getItem('choice'); 
-        var initial ='';
-        if (choice === 'owner'){
-            initial = 'transfer_owner_partial_initial';
-            add = 'transfer_owner_partial_add';
-            save = 'transfer_owner_partial_submit';
+    <style>
+        body {
+            height: 100%;
+            font-size: 18px;
         }
-        if (choice === 'slauter'){
-            initial = 'transfer_slauter_partial_initial';
-            add ='transfer_slauter_partial_add';
-            save ='transfer_slauter_partial_submit';
-        } 
-        if (choice === 'border'){
-            initial = 'transfer_border_partial_initial';
-            add ='border_parial_add';
-            save ='border_parial_submit';
-        } 
 
-        sessionStorage.setItem('CONTROL2_RDG_SW_AVAR_RD_AHAVAROT_0',localStorage.getItem('CONTROL2_RDG_SW_AVAR_RD_AHAVAROT_0'));
-        sessionStorage.setItem('CONTROL2_BAALIM_ZH_YAD_0',localStorage.getItem('CONTROL2_BAALIM_ZH_YAD_0'));
-        sessionStorage.setItem('CONTROL2_MEGADEL_ZH_YAD_0',localStorage.getItem('CONTROL2_MEGADEL_ZH_YAD_0'));
-        sessionStorage.setItem('CONTROL2_MOVIL_ZH_0',localStorage.getItem('CONTROL2_MOVIL_ZH_0'));
-        sessionStorage.setItem('CONTROL2_SOCHER_ZH_0',localStorage.getItem('CONTROL2_SOCHER_ZH_0'));
-        sessionStorage.setItem('CONTROL2_SW_HATZHARAT_SOCHER_0',localStorage.getItem('CONTROL2_SW_HATZHARAT_SOCHER_0'));
-        sessionStorage.setItem('CONTROL2_MASHGIACH_ZH_0',localStorage.getItem('CONTROL2_MASHGIACH_ZH_0'));
-        sessionStorage.setItem('CONTROL2_DSP_ISHUV_YAAD_0',localStorage.getItem('CONTROL2_DSP_ISHUV_YAAD_0'));
-        
-       
-        if ( choice === 'slauter'){
-            sessionStorage.setItem('CONTROL1_SUG_HAAVAROT_0','1');
-            sessionStorage.setItem('CONTROL2_SHEM_MEGADEL_YAD_BM_0', localStorage.getItem('CONTROL2_SHEM_MEGADEL_YAD_BM_0'));  
+        button.pop-btn {
+            color: #9f8db9;
+            background: #ffffff;
         }
-        if ( choice === 'border'){
-            sessionStorage.setItem('param9158', localStorage.getItem('param9158'));  
-            sessionStorage.setItem('CONTROL2_SHEM_BAALIM_YAD_RASHAP_0', localStorage.getItem('CONTROL2_SHEM_BAALIM_YAD_RASHAP_0'));  
-        }
-               
-        populateField("keepAlive", true);
-        sessionStorage.setItem('ROSH_BALHAIM_MSP_ZIHUY_0','true');
-        callWebServiceWithAllParams(initial, "", transferSuccess, transferFail, false);
-    } 
 
-    function transferSuccess(){
-        var popupMsg = getResponseNodeValueByName('PopupMessages');
-        if (popupMsg.length > 0){
-            $('#errorModal').modal('toggle');
-            $('.errormsg').text(popupMsg);
-        }else{
-            var sessionId = getResponseNodeValueByName('sessionId');
-            populateField("sessionId", sessionId); 
-            setTimeout(transferCows, 10);
+        button.pop-btn img {
+            width: 17px;
+            vertical-align: baseline;
         }
-        
-    } 
 
-    function transferCows () {
-        var cows =[];
-    
-        $("div[class^='cow_']").each( function( index ) {
-            if (index !==0) {
-                var zihuy = $('#ROSH_BALHAIM_MSP_ZIHUY_'+ index).val();
-                if (zihuy) cows.push({zihuy:zihuy} );
+        button.pop-btn-r {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            outline: none;
+        }
+
+        button.btn {
+            font-size: 100%;
+            font-weight: 700;
+        }
+
+        label {
+            font-weight: 700;
+        }
+
+        header.header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ccc8d2;
+            min-height: 50px;
+        }
+
+        div.logoImg {
+            flex: 2;
+            margin: 0 10px;
+            padding: 5px;
+        }
+
+        .logoImg img {
+            max-height: 10vh;
+        }
+
+        div.title {
+            flex: 8;
+            font-size: 1.75em;
+            position: absolute;
+            font-weight: 600;
+        }
+
+        .ui-widget-header {
+            background: #ccc8d2;
+            border: 1px solid #ccc8d2;
+        }
+
+        div.populateLoadCitiesComponent {
+            display: none;
+            justify-content: center;
+            position: absolute;
+            top: 8em;
+            right: 0;
+            left: 0;
+            margin: auto;
+            max-width: 300px;
+            max-height: 400px;
+            overflow: auto;
+            max-height: 180px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+            border: 1px solid #a496b9;
+            border-radius: 12px;
+            padding: 2em;
+            z-index: 10;
+        }
+
+        @media (max-width: 550px) {
+            #pageTitle {
+                margin-left: 120px;
+                text-align: left !important;
             }
-        });
-
-        for (var i=0; i< cows.length;i++){
-            populateField("ROSH_BALHAIM_MSP_ZIHUY_1", cows[i].zihuy);
-            callWebServiceWithAllParams(add, "", "", "", false);
         }
-        setTimeout(saveAndEnd, 10);
-    }
 
-    function saveAndEnd()
-    {
-        populateField("keepAlive", false);
-        callWebServiceWithAllParams(save, "", onSave,"")
-    } 
+        .moaginput {
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #9f8db9;
+            text-align: right;
+            width: 100%;
+            margin-bottom: 0.5em;
+        }
 
-    function transferFail(){
+        .main-container {
+            margin-top: 2em;
+        }
 
-    }
+        .moagLogin {
+            width: 100%;
+            margin-top: 10px;
 
-    function updatePriceData() {
-        var numOfCows =0;
-        $("[id^='ROSH_BALHAIM_MSP_ZIHUY_']").each( function( index ) {
-            var id = $('#ROSH_BALHAIM_MSP_ZIHUY_' + index).val();
-            if (id.length > 9) numOfCows++;
-        })
-        var price = $('#CONTROL_TAARIF_0').val();
-        $('#CONTROL_TOTAL_RB_0').val(numOfCows);
-        $('#CONTROL2_TASHLUM_ZH_0').val(numOfCows * price);
-        
-    }
+        }
 
-    function chooseCow(){
-               
-        var chosenCow = $("#number :selected").text();
-        var id = cowsData.row.split('_')[1];
-        $('#ROSH_BALHAIM_MSP_ZIHUY_' + id).val(chosenCow);
-        $('cowsModal').modal('trigger');
-        updatePriceData();
-        
-    }
+        .moagselect {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            border-bottom: 2px solid whitesmoke;
+        }
 
-    function copyCow(pointer){
-        var id = pointer.id;
-        id = id.split('_')[1];
-        var copyText = document.getElementById('ROSH_BALHAIM_MSP_ZIHUY_'+id);
-        copyText.select();
-        $('#copied').modal('trigger');
-        document.execCommand("copy");
-        //toastr.info('מספר הועתק');
-       
-        
-    }
-    function suggestCow(pointer) {
+        .moagbtnDanger {
+            background-color: #ac2925;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4;
+            text-align: center;
+            height: 50px;
+            color: white;
 
-         cowsData.row = pointer.id;
-        $.ajax({        
-            type: "get",
-            url:'http://devwbl.moag.gov.il:7001/ServiceManager/Macro/ExecMacro/dbGetTransferCows',
-            success:function(data){
-                var availableCows = [];
-                var cows = data.Response.dbGetTransferCowsTableArray.dbGetTransferCowsArrayItem;
-                cowsData.cows = cows;
-                for (var i=0;i < cows.length; i++){
-                    var cow = cows[i];
-                    availableCows.push(cow.MSP_ZIHUY);
-                    
-                    $('#number').append($('<option>', { 
-                        value: i,
-                        text : cow.MSP_ZIHUY 
-                    }));
-                }
-                $('#cowsModal').modal('show');
-                $('#number').change(function(){
-                    $('span.moagselect').css('visibility', 'hidden');
-                })
-               
-            },
-            error:function(){
+        }
 
+        .moagcity {
+            background-color: transparent !important;
+            border: none !important;
+            border-bottom: 2px solid whitesmoke !important;
+        }
+
+        .moagdrop {
+            overflow-y: scroll;
+            height: 300px;
+        }
+
+        .ui-autocomplete {
+            position: relative !important;
+            height: 150px !important;
+            overflow-y: scroll !important;
+        }
+
+        .center-details {
+            max-width: 1224px;
+            border: 1px solid #a496b9;
+            border-radius: 12px;
+            padding: 2em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+        }
+
+        .citiesInput {
+            text-align: right;
+        }
+
+        @media(max-width: 600px) {
+
+            .logoImg img {
+                width: 30%;
             }
-         })
-    }
-    function onSave() {
-        var popupMsg = getResponseNodeValueByName('PopupMessages');
-        $('.successmsg').text(popupMsg);
-        $('#successModal').modal('toggle');
-    }
+            div.ap-btn-container {
+                flex-direction: column;
+                justify-content: center;
+            }
 
-    verifyLogin();
-    function addCow(e){
-        
-        console.log(e);
-        var cowHtml = '<div style="margin-top:10px;" class="cow_'+numOfCows+'">'+ 
-        '<div class="row">'+ 
-            '<div class="col-md-4">'+ 
-                '<label for="ROSH_BALHAIM_MSP_ZIHUY_'+numOfCows+'" style="color:#696969"> מספר תווית כולל ספרת ביקורת </label>'+ 
-                '<input id="ROSH_BALHAIM_MSP_ZIHUY_'+numOfCows+'" name="מספר תווית כולל ספרת ביקורת" type="text" value="" maxlength="9" class="moaginput">'+
-            '</div>'+ 
-            '<div class="col-md-4">'+ 
-                '<button id="add_'+numOfCows+'" class="btn btn-success addCow" onclick="addCow(this)" style="width:20%"> + </button>'+ 
-                '<button id="omit_'+numOfCows+'" onclick="removeCow(this)" class="btn btn-info removeCow" style="width:20%;margin-right:5px;"> - </button>'+ 
-                '<button id="copy_'+numOfCows+'" onclick="copyCow(this)" class="btn btn-info copyCow" style="width:20%;margin-right:5px;"> <i class="fas fa-copy"></i> </button>'+ 
-                '<button id="suggest_'+numOfCows+'" onclick="suggestCow(this)" class="btn btn-info suggestCow" style="width:20%;margin-right:5px;"> <i class="fas fa-align-justify"></i> </button>'+ 
-            '</div>'+ 
-            '</div>'+ 
-        '</div>';
-   
-        $('.cow-container').append(cowHtml);
-        $( '.datepicker_'+numOfCows ).datepicker({ dateFormat: 'dd/mm/yy' });
-        numOfCows++;
-        
-    }
-    
-    function verifyLogin(){
-        var user = sessionStorage.getItem('CONTROL2_PASSWORD_0');
-        if (!user) navigate('Login.html');
-    }
+            button.ap-btn.ap-btn-md {
+                width: 100%;
+                margin-bottom: 10px;
+            }
 
-    function removeCow(e) {
-        var cow = $(e);
-        var removeId = cow.attr('id');
-        var cowId = removeId.split('_')[1];
-        $('.cow_'+cowId).remove();
-        //$('.cow-container').remove(e);
-    }
-    
-    $(function () {
-        console.log('keep alive');
-        populateField("keepAlive", true);
-        for (var i=0; i<6; i++){
-            addCow();
+            .center-details {
+                border: none;
+                box-shadow: none;
+            }
         }
-        
-   
-    });
-    
-   
-    
-   
-</script> 
-<!--<div id="mainPage" data-role="page" data-theme="a" class="background-stretch" style="background-image: url('../../www/img/bg_homepage_Img.jpg')"> --> 
-<nav class="navbar navbar-default"> 
-<div class="container-fluid moagtitle">
-    סימון 
-    <div class="navbar-header logoImg"> 
-    <a class="navbar-brand "> </a>
-    <a href="javascript:navigate('Login.html')"><img src="../../www/img/moag.png" width="120px"></a>  
-    </div> 
-</div> 
-</nav> 
-<br>
 
-<div data-role="main" class="ui-content"> 
-<div class="container center-details">
+        @media(max-width: 543px) {
+            .moaginput {
+                width: 100%;
+            }
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="cow-container"> 
-    
+            .main-container {
+                margin-top: 0;
+            }
+        }
+
+        @media(max-width: 400px) {
+            div.title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body dir="RTL" id="mainBody">
+    <div id="mainPage" data-role="page" data-theme="a" class="background-stretch mainPage">
+        <header class="header">
+            <div class="logoImg">
+                <a href="javascript:navigate('Login.html')">
+                    <img src="../../www/img/moag.png">
+                </a>
             </div>
+            <div class="title">סימון</div>
+        </header>
+        <div data-role="main" class="ui-content main-container">
+            <div class="container center-details">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="cow-container">
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="CONTROL_TAARIF_0">
+                                    <nobr>
+                                        תעריף העברה
+                                    </nobr>
+                                </label>
+                                <input id="CONTROL_TAARIF_0" type="text" value="" class="moaginput ap-input-lg">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="CONTROL_TOTAL_RB_0">
+                                    <nobr>
+                                        סה"כ ראשי בקר
+                                    </nobr>
+                                </label>
+                                <input id="CONTROL_TOTAL_RB_0" type="text"  value="" class="moaginput ap-input-lg">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="CONTROL2_TASHLUM_ZH_0">
+                                    <nobr>
+                                        סה"כ לתשלום
+                                    </nobr>
+                                </label>
+                                <input id="CONTROL2_TASHLUM_ZH_0" type="text" value="" class="moaginput ap-input-lg">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="CONTROL_EMAIL_0">
+                                    <nobr>
+                                        אימייל
+                                    </nobr>
+                                </label>
+                                <input id="CONTROL_EMAIL_0" type="text" value="" class="moaginput ap-input-lg">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="responsePart" name="responsePart">
+                    <div id="spacerAbovePopups" style="height:30px"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button id="submit" onclick="submit()" style="width:100%" class="btn btn-success"> בצע </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="בצע" style="width:100%" onclick="navigate('transfer.html')" class="btn btn-danger"> חזרה </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <!-- Info popup - single OK button -->
+    <div data-role="popup" id="infoPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;">
+        <div data-role="header" data-theme="a">
+            <h1 id="infoPopupTitle"></h1>
         </div>
-        <div class="col-md-4">
-             
-            
-            <div class="row">
-                <div class="col-md-5">
-                    <label for="CONTROL_TAARIF_0" style="color:#696969"> 
-                        <nobr>
-                            תעריף העברה
-                        </nobr>
-                    </label>
-                    <input id="CONTROL_TAARIF_0" style="width:100%" type="text" value="" class="moaginput">
-                </div>
-                <div class="col-md-5">
-                    <label for="CONTROL_TOTAL_RB_0" style="color:#696969"> 
-                        <nobr>
-                            סה"כ ראשי בקר
-                        </nobr>
-                    </label>
-                    <input id="CONTROL_TOTAL_RB_0" type="text" style="width:100%" value="" class="moaginput">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <label for="CONTROL2_TASHLUM_ZH_0" style="color:#696969"> 
-                        <nobr>
-                            סה"כ לתשלום
-                        </nobr>
-                    </label>
-                    <input id="CONTROL2_TASHLUM_ZH_0" type="text" style="width:100%" value="" class="moaginput">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label for="CONTROL_EMAIL_0" style="color:#696969"> 
-                        <nobr>
-                            אימייל
-                        </nobr>
-                    </label>
-                    <input id="CONTROL_EMAIL_0" type="text" style="width:100%" value="" class="moaginput">
-                </div>
-            </div>
-
-            
+        <div role="main" class="ui-content">
+            <p id="infoPopupMessage"></p>
+            <span style="padding: 1px;"></span>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back">OK</a>
         </div>
     </div>
-    
-
-    <div id="responsePart" name="responsePart"> 
-        <div id="spacerAbovePopups" style="height:30px"></div> 
-    </div> 
-    <div class="row">
-        <div class="col-md-6">
-            <button id="בצע" style="width:100%" onclick="navigate('transfer.html')" class="btn btn-info"> חזרה </button> 
+    <!-- Confirm popup - OK, Cancel buttons -->
+    <div data-role="popup" id="confirmPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;">
+        <div data-role="header" data-theme="a">
+            <h1 id="confirmPopupTitle"></h1>
         </div>
-        <div class="col-md-6">
-            <button id="submit" onclick="submit()" style="width:100%" class="btn btn-success"> בצע </button> 
+        <div role="main" class="ui-content">
+            <p id="confirmPopupMessage"></p>
+            <div style="padding: 10px;"></div>
+            <a id="confirmPopupOk" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">OK</a>
+            <a id="confirmPopupCancel" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a>
         </div>
     </div>
-</div> 
-</div>
+    <script src="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/js/bootstrap-datetimepicker.js"></script>
 
-<!-- Info popup - single OK button --> 
-<div data-role="popup" id="infoPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;"> 
-    <div data-role="header" data-theme="a"> 
-    <h1 id="infoPopupTitle"></h1> 
-    </div> 
-    <div role="main" class="ui-content"> 
-    <p id="infoPopupMessage"></p> 
-    <span style="padding: 1px;"></span> 
-    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back">OK</a> 
-    </div> 
-</div> 
-<!-- Confirm popup - OK, Cancel buttons --> 
-<div data-role="popup" id="confirmPopup" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="visibility:hidden;max-width:400px;"> 
-    <div data-role="header" data-theme="a"> 
-    <h1 id="confirmPopupTitle"></h1> 
-    </div> 
-    <div role="main" class="ui-content"> 
-    <p id="confirmPopupMessage"></p> 
-    <div style="padding: 10px;"></div> 
-    <a id="confirmPopupOk" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">OK</a> 
-    <a id="confirmPopupCancel" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a> 
-    </div> 
-</div> 
-<script src="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/js/bootstrap-datetimepicker.js"></script>
-
-<div class="modal" id="cowsModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">בחר</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body" style="overflow: auto;">
-                <!-- <form class="eventInsForm" action="#" method="post">
+    <div class="modal" id="cowsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">בחר</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    <!-- <form class="eventInsForm" action="#" method="post">
                         <input type="text" class="cowsNum">
                         <textarea rows="20"></textarea>
                 </form> -->
-            <!-- <label for="number">בחר</label> -->
+                    <!-- <label for="number">בחר</label> -->
+
+                    <select id="number" class="moagselect">
+
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="chooseCow()" id="enterCowNum" class="btn btn-secondary" data-dismiss="modal">בחר</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="copied" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">מספר הועתק</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="errorModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="errormsg"></p>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="successModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">סיום</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="successmsg"></p>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var cowsData ={};
+        
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            $('.ui-loader').hide();
+        
+            });
             
-            <select id="number" class="moagselect">
-                
-            </select>    
-        </div>
-        <div class="modal-footer">
-            <button type="button" onclick="chooseCow()" id="enterCowNum" class="btn btn-secondary" data-dismiss="modal">בחר</button>
-        </div>
-        </div>
-    </div>
-</div>     
-
-<div class="modal" id="copied" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">מספר הועתק</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
            
-        </div>
-        <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
-        </div>
-        </div>
-    </div>
-</div>     
-
-<div class="modal" id="errorModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <p class="errormsg"></p>
-        </div>
-        <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
-        </div>
-        </div>
-    </div>
-</div>   
-
-<div class="modal" id="successModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">סיום</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span style="position: relative;top: -20px;" aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <p class="successmsg"></p>
-        </div>
-        <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
-        </div>
-        </div>
-    </div>
-</div>      
+            var showStatusMessages = false;
+            var origRequestFields;
+            var numOfCows = 0;
+            var initial,add,save;
+            
+            setPriceData();
+        
+            function setPriceData() {
+                
+                callWebServiceWithAllParams('get_transfer_data','',function(data){
+                    data = data.Response.get_transfer_dataElements;
+                    $('#CONTROL_TAARIF_0').val(data.CONTROL_TAARIF_0);
+                    $('#CONTROL_EMAIL_0').val(data.CONTROL_EMAIL_0);
+        
+                }, function(){console.log('couldnt get data about user')})
+            }
+        
+            function submit () {
+                var choice = localStorage.getItem('choice'); 
+                var initial ='';
+                if (choice === 'owner'){
+                    initial = 'transfer_owner_partial_initial';
+                    add = 'transfer_owner_partial_add';
+                    save = 'transfer_owner_partial_submit';
+                }
+                if (choice === 'slauter'){
+                    initial = 'transfer_slauter_partial_initial';
+                    add ='transfer_slauter_partial_add';
+                    save ='transfer_slauter_partial_submit';
+                } 
+                if (choice === 'border'){
+                    initial = 'transfer_border_partial_initial';
+                    add ='border_parial_add';
+                    save ='border_parial_submit';
+                } 
+        
+                sessionStorage.setItem('CONTROL2_RDG_SW_AVAR_RD_AHAVAROT_0',localStorage.getItem('CONTROL2_RDG_SW_AVAR_RD_AHAVAROT_0'));
+                sessionStorage.setItem('CONTROL2_BAALIM_ZH_YAD_0',localStorage.getItem('CONTROL2_BAALIM_ZH_YAD_0'));
+                sessionStorage.setItem('CONTROL2_MEGADEL_ZH_YAD_0',localStorage.getItem('CONTROL2_MEGADEL_ZH_YAD_0'));
+                sessionStorage.setItem('CONTROL2_MOVIL_ZH_0',localStorage.getItem('CONTROL2_MOVIL_ZH_0'));
+                sessionStorage.setItem('CONTROL2_SOCHER_ZH_0',localStorage.getItem('CONTROL2_SOCHER_ZH_0'));
+                sessionStorage.setItem('CONTROL2_SW_HATZHARAT_SOCHER_0',localStorage.getItem('CONTROL2_SW_HATZHARAT_SOCHER_0'));
+                sessionStorage.setItem('CONTROL2_MASHGIACH_ZH_0',localStorage.getItem('CONTROL2_MASHGIACH_ZH_0'));
+                sessionStorage.setItem('CONTROL2_DSP_ISHUV_YAAD_0',localStorage.getItem('CONTROL2_DSP_ISHUV_YAAD_0'));
+                
+               
+                if ( choice === 'slauter'){
+                    sessionStorage.setItem('CONTROL1_SUG_HAAVAROT_0','1');
+                    sessionStorage.setItem('CONTROL2_SHEM_MEGADEL_YAD_BM_0', localStorage.getItem('CONTROL2_SHEM_MEGADEL_YAD_BM_0'));  
+                }
+                if ( choice === 'border'){
+                    sessionStorage.setItem('param9158', localStorage.getItem('param9158'));  
+                    sessionStorage.setItem('CONTROL2_SHEM_BAALIM_YAD_RASHAP_0', localStorage.getItem('CONTROL2_SHEM_BAALIM_YAD_RASHAP_0'));  
+                }
+                       
+                populateField("keepAlive", true);
+                sessionStorage.setItem('ROSH_BALHAIM_MSP_ZIHUY_0','true');
+                callWebServiceWithAllParams(initial, "", transferSuccess, transferFail, false);
+            } 
+        
+            function transferSuccess(){
+                var popupMsg = getResponseNodeValueByName('PopupMessages');
+                if (popupMsg.length > 0){
+                    $('#errorModal').modal('toggle');
+                    $('.errormsg').text(popupMsg);
+                }else{
+                    var sessionId = getResponseNodeValueByName('sessionId');
+                    populateField("sessionId", sessionId); 
+                    setTimeout(transferCows, 10);
+                }
+                
+            } 
+        
+            function transferCows () {
+                var cows =[];
+            
+                $("div[class^='cow_']").each( function( index ) {
+                    if (index !==0) {
+                        var zihuy = $('#ROSH_BALHAIM_MSP_ZIHUY_'+ index).val();
+                        if (zihuy) cows.push({zihuy:zihuy} );
+                    }
+                });
+        
+                for (var i=0; i< cows.length;i++){
+                    populateField("ROSH_BALHAIM_MSP_ZIHUY_1", cows[i].zihuy);
+                    callWebServiceWithAllParams(add, "", "", "", false);
+                }
+                setTimeout(saveAndEnd, 10);
+            }
+        
+            function saveAndEnd()
+            {
+                populateField("keepAlive", false);
+                callWebServiceWithAllParams(save, "", onSave,"")
+            } 
+        
+            function transferFail(){
+        
+            }
+        
+            function updatePriceData() {
+                var numOfCows =0;
+                $("[id^='ROSH_BALHAIM_MSP_ZIHUY_']").each( function( index ) {
+                    var id = $('#ROSH_BALHAIM_MSP_ZIHUY_' + index).val();
+                    if (id.length > 9) numOfCows++;
+                })
+                var price = $('#CONTROL_TAARIF_0').val();
+                $('#CONTROL_TOTAL_RB_0').val(numOfCows);
+                $('#CONTROL2_TASHLUM_ZH_0').val(numOfCows * price);
+                
+            }
+        
+            function chooseCow(){
+                       
+                var chosenCow = $("#number :selected").text();
+                var id = cowsData.row.split('_')[1];
+                $('#ROSH_BALHAIM_MSP_ZIHUY_' + id).val(chosenCow);
+                $('cowsModal').modal('trigger');
+                updatePriceData();
+                
+            }
+        
+            function copyCow(pointer){
+                var id = pointer.id;
+                id = id.split('_')[1];
+                var copyText = document.getElementById('ROSH_BALHAIM_MSP_ZIHUY_'+id);
+                copyText.select();
+                $('#copied').modal('trigger');
+                document.execCommand("copy");
+                //toastr.info('מספר הועתק');
+               
+                
+            }
+            function suggestCow(pointer) {
+        
+                 cowsData.row = pointer.id;
+                $.ajax({        
+                    type: "get",
+                    url:'http://devwbl.moag.gov.il:7001/ServiceManager/Macro/ExecMacro/dbGetTransferCows',
+                    success:function(data){
+                        var availableCows = [];
+                        var cows = data.Response.dbGetTransferCowsTableArray.dbGetTransferCowsArrayItem;
+                        cowsData.cows = cows;
+                        for (var i=0;i < cows.length; i++){
+                            var cow = cows[i];
+                            availableCows.push(cow.MSP_ZIHUY);
+                            
+                            $('#number').append($('<option>', { 
+                                value: i,
+                                text : cow.MSP_ZIHUY 
+                            }));
+                        }
+                        $('#cowsModal').modal('show');
+                        $('#number').change(function(){
+                            $('span.moagselect').css('visibility', 'hidden');
+                        })
+                       
+                    },
+                    error:function(){
+        
+                    }
+                 })
+            }
+            function onSave() {
+                var popupMsg = getResponseNodeValueByName('PopupMessages');
+                $('.successmsg').text(popupMsg);
+                $('#successModal').modal('toggle');
+            }
+        
+            // verifyLogin();
+            function addCow(e){
+                
+                console.log(e);
+                var cowHtml = '<div style="margin-top:10px;" class="cow_'+numOfCows+'">'+ 
+                '<div class="row">'+ 
+                    '<div class="col-md-4">'+ 
+                        '<label for="ROSH_BALHAIM_MSP_ZIHUY_'+numOfCows+'" style="color:#696969"> מספר תווית כולל ספרת ביקורת </label>'+ 
+                        '<input id="ROSH_BALHAIM_MSP_ZIHUY_'+numOfCows+'" name="מספר תווית כולל ספרת ביקורת" type="text" value="" maxlength="9" class="moaginput">'+
+                    '</div>'+ 
+                    '<div class="col-md-4">'+ 
+                        '<button id="add_'+numOfCows+'" class="btn btn-success addCow" onclick="addCow(this)" style="width:20%"> + </button>'+ 
+                        '<button id="omit_'+numOfCows+'" onclick="removeCow(this)" class="btn btn-danger removeCow" style="width:20%;margin-right:5px;"> - </button>'+ 
+                        '<button id="copy_'+numOfCows+'" onclick="copyCow(this)" class="btn btn-info copyCow" style="width:20%;margin-right:5px;"> <i class="fas fa-copy"></i> </button>'+ 
+                        '<button id="suggest_'+numOfCows+'" onclick="suggestCow(this)" class="btn btn-info suggestCow" style="width:20%;margin-right:5px;"> <i class="fas fa-align-justify"></i> </button>'+ 
+                    '</div>'+ 
+                    '</div>'+ 
+                '</div>';
+           
+                $('.cow-container').append(cowHtml);
+                $( '.datepicker_'+numOfCows ).datepicker({ dateFormat: 'dd/mm/yy' });
+                numOfCows++;
+                
+            }
+            
+            function verifyLogin(){
+                var user = sessionStorage.getItem('CONTROL2_PASSWORD_0');
+                if (!user) navigate('Login.html');
+            }
+        
+            function removeCow(e) {
+                var cow = $(e);
+                var removeId = cow.attr('id');
+                var cowId = removeId.split('_')[1];
+                $('.cow_'+cowId).remove();
+                //$('.cow-container').remove(e);
+            }
+            
+            $(function () {
+                console.log('keep alive');
+                populateField("keepAlive", true);
+                for (var i=0; i<6; i++){
+                    addCow();
+                }
+                
+           
+            });
+            
+           
+            
+           
+        </script> 
 </body>
 
 </html>

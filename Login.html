@@ -49,23 +49,22 @@
   <!-- <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css"> -->
   <!-- <link rel="stylesheet" href="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/css/bootstrap-datetimepicker.css"> -->
 
-<style>
+  <style>
+    body {
+      font-size: 18px;
+    }
 
-body {
-  font-size: 18px;
-}
+    input {
+      outline: none;
+    }
 
-input {
-  outline: none;
-}
-
-button.btn {
-  font-size: 90%;
-  font-weight: 700;
-}
+    button.btn {
+      font-size: 90%;
+      font-weight: 700;
+    }
 
 
-    
+
     header.header {
       display: flex;
       display: -webkit-flex;
@@ -76,7 +75,8 @@ button.btn {
     }
 
     div.logoImg {
-      -webkit-flex: 2;  /* Safari 6.1+ */
+      -webkit-flex: 2;
+      /* Safari 6.1+ */
       -ms-flex: 2;
       flex: 2;
       margin: 0 10px;
@@ -88,12 +88,12 @@ button.btn {
     }
 
     div.title {
-      -webkit-flex: 8;  /* Safari 6.1+ */
+      -webkit-flex: 8;
+      /* Safari 6.1+ */
       -ms-flex: 8;
       flex: 8;
       font-size: 1.75em;
       position: absolute;
-      font-size: 2em;
       font-weight: 600;
     }
 
@@ -167,74 +167,11 @@ button.btn {
         box-shadow: none;
       }
     }
-
   </style>
 </head>
 
 <body dir="RTL" id="mainBody">
-  <script type="text/javascript">
 
-    $(document).ready(function () {
-      initFromSession();
-      $('#login').click(function () {
-        callWebServiceWithAllParams('MOAG_Login ', '', MOAG_Login_onSuccess, MOAG_Login_onFailure)
-      })
-    })
-
-    function initFromSession() {
-      $('.ui-loader').hide();
-      let userName = sessionStorage.getItem('CONTROL2_USERNAME_0');
-      let password = sessionStorage.getItem('CONTROL2_PASSWORD_0');
-      let numer = sessionStorage.getItem('CONTROL2_ZIHUY_0');
-
-      $('#CONTROL2_USERNAME_0').val(userName);
-      $('#CONTROL2_PASSWORD_0').val(password);
-      $('#CONTROL2_ZIHUY_0').val(numer);
-
-    }
-
-
-
-
-
-    function MOAG_Login_onFailure() {
-
-      console.log('fail');
-      var popupMsg = getResponseNodeValueByName('PopupMessages');
-      if (popupMsg.length == 0) {
-        navigate("details.html");
-      } else {
-        let msg1 = "הסיסמא המדווחת ראשונית";
-        let msg2 = "פג תוקפה של הסיסמא";
-        if (popupMsg[0].indexOf(msg1) != -1 || popupMsg[0].indexOf(msg2) != -1) {
-          showInfoPopup("כניסה", popupMsg[0], function () { navigate("newPassword.html") });
-        } else {
-          showInfoPopup("כניסה", "שם משתמש או סיסמא אינם תקינים", function () { });
-        }
-      }
-    }
-
-
-    function MOAG_Login_onSuccess() {
-      console.log('success');
-      var popupMsg = getResponseNodeValueByName('PopupMessages');
-      if (popupMsg.length == 0) {
-        navigate("manu.html");
-      } else {
-        let msg1 = "הסיסמא המדווחת ראשונית";
-        let msg2 = "פג תוקפה של הסיסמא";
-        if (popupMsg[0].indexOf(msg1) != -1 || popupMsg[0].indexOf(msg2) != -1) {
-          showInfoPopup("כניסה", popupMsg[0], function () { navigate("newPassword.html") });
-        } else {
-          $('.loginmsg').text(popupMsg);
-          $('#loginModal').modal('toggle');
-          //swal("שם משתמש או סיסמא אינם תקינים");
-          //showInfoPopup("כניסה","שם משתמש או סיסמא אינם תקינים" , () => {});
-        }
-      }
-    }
-
-  </script>
   <div id="mainPage" data-role="page" data-theme="a" class="background-stretch">
 
     <header class="header">
@@ -330,6 +267,70 @@ button.btn {
       </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+      initFromSession();
+      $('#login').click(function () {
+        callWebServiceWithAllParams('MOAG_Login ', '', MOAG_Login_onSuccess, MOAG_Login_onFailure)
+      })
+    })
+
+    function initFromSession() {
+      $('.ui-loader').hide();
+      let userName = sessionStorage.getItem('CONTROL2_USERNAME_0');
+      let password = sessionStorage.getItem('CONTROL2_PASSWORD_0');
+      let numer = sessionStorage.getItem('CONTROL2_ZIHUY_0');
+
+      $('#CONTROL2_USERNAME_0').val(userName);
+      $('#CONTROL2_PASSWORD_0').val(password);
+      $('#CONTROL2_ZIHUY_0').val(numer);
+
+    }
+
+
+
+
+
+    function MOAG_Login_onFailure() {
+
+      console.log('fail');
+      var popupMsg = getResponseNodeValueByName('PopupMessages');
+      if (popupMsg.length == 0) {
+        navigate("details.html");
+      } else {
+        let msg1 = "הסיסמא המדווחת ראשונית";
+        let msg2 = "פג תוקפה של הסיסמא";
+        if (popupMsg[0].indexOf(msg1) != -1 || popupMsg[0].indexOf(msg2) != -1) {
+          showInfoPopup("כניסה", popupMsg[0], function () { navigate("newPassword.html") });
+        } else {
+          showInfoPopup("כניסה", "שם משתמש או סיסמא אינם תקינים", function () { });
+        }
+      }
+    }
+
+
+    function MOAG_Login_onSuccess() {
+      console.log('success');
+      var popupMsg = getResponseNodeValueByName('PopupMessages');
+      if (popupMsg.length == 0) {
+        navigate("manu.html");
+      } else {
+        let msg1 = "הסיסמא המדווחת ראשונית";
+        let msg2 = "פג תוקפה של הסיסמא";
+        if (popupMsg[0].indexOf(msg1) != -1 || popupMsg[0].indexOf(msg2) != -1) {
+          showInfoPopup("כניסה", popupMsg[0], function () { navigate("newPassword.html") });
+        } else {
+          $('.loginmsg').text(popupMsg);
+          $('#loginModal').modal('toggle');
+          //swal("שם משתמש או סיסמא אינם תקינים");
+          //showInfoPopup("כניסה","שם משתמש או סיסמא אינם תקינים" , () => {});
+        }
+      }
+    }
+
+  </script>
 
 </body>
 
