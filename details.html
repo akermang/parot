@@ -105,7 +105,7 @@ div.populateLoadCitiesComponent {
     display: none;
     justify-content: center;
     position: absolute;
-    top: 6em;
+    top: 8em;
     right: 0;
     left: 0;
     margin: auto;
@@ -288,10 +288,10 @@ color:white;
                   type: 'text'
               };
           
-              // defaultValues['CONTROL2_TAR_SIMUN_0'] = {
-              //     value: convert_CONTROL2_TAR_SIMUN_0(null),
-              //     type: 'date'
-              // };
+              defaultValues['CONTROL2_TAR_SIMUN_0'] = {
+                  value: convert_CONTROL2_TAR_SIMUN_0(null),
+                  type: 'date'
+              };
           
               defaultValues['CONTROL2_MEGADEL_ZH_0'] = {
                   value: null,
@@ -359,36 +359,46 @@ color:white;
                      
                   }, function(){console.log('not loaded');})
               }
-
+            // ******************  populateLoadCities Component ***************
             function populateLoadCities() {
                  callWebServiceWithAllParams("MOAG_getCityLOV", "", function(data){
                      console.log(data);
-                     var availableCities = [];
-                     var cites = data.Response.MOAG_getCityLOVTableArray.MOAG_getCityLOVArrayItem;
+                     let availableCities = [];
+                     let cites = data.Response.MOAG_getCityLOVTableArray.MOAG_getCityLOVArrayItem;
                      for (var i=0;i < cites.length; i++){
-                         var city = cites[i];
+                         let city = cites[i];
                          availableCities.push(city.LOV_ISHUV);
                      }
                      $( "#PopCities" ).autocomplete({
                           source: availableCities,
                           appendTo: "#PopCONTROL2_SHEM_ISHUV_0_container"
                       });
+                      triggerListCitiesInput();
                       deleteLOV("LOV",cites.length );
                      
                   }, function(){console.log('not loaded');})
             }
 
+            function triggerListCitiesInput() {
+                let myEvent = jQuery.Event("keydown");
+                      myEvent.keyCode = 32;
+                      $("#PopCities").trigger('focus').attr('value','').trigger(myEvent);
+                      console.log("PopCities Triggered");
+            }
+
               function hideCityPopup() {
                   $(".populateLoadCitiesComponent").hide("fast");
+                  let val = $(PopCities).val();
+                  console.log("input val:", val);
               }
 
               function showCityPopup() {
-                  let myEvent = jQuery.Event("keydown");
-                  myEvent.keyCode = 32;
+                  
                   $(".populateLoadCitiesComponent").show();
-                  $("#PopCities").trigger('focus').attr('value','').trigger(myEvent);
+                  populateLoadCities();
               }
-              
+            //  *************** end populateLoadCities ompnent *************************
+
               //handler for request sent
               function sendRequestHandler() {
                   document.getElementById("responsePart").style.display = 'none';
