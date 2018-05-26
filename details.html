@@ -42,9 +42,13 @@ body {
     font-size: 18px;
 }
 button.pop-btn {
-    border-radius: 50%;
-    border: none;
+    color: #9f8db9;
     background: #ffffff;
+}
+
+button.pop-btn img {
+    width: 17px;
+    vertical-align: baseline;
 }
 
 button.pop-btn-r {
@@ -388,6 +392,7 @@ color:white;
 
               function hideCityPopup() {
                   $(".populateLoadCitiesComponent").hide("fast");
+                  $("button.pop-btn img").show();
                   let val = $(PopCities).val();
                   console.log("input val:", val);
               }
@@ -395,6 +400,7 @@ color:white;
               function showCityPopup() {
                   
                   $(".populateLoadCitiesComponent").show();
+                  $("button.pop-btn img").hide();
                   populateLoadCities();
               }
             //  *************** end populateLoadCities ompnent *************************
@@ -435,7 +441,7 @@ color:white;
                 <div class="container center-details">
                     <div id="populateLoadCitiesComponent" class="populateLoadCitiesComponent">
                             <span class="responseField col-sm-12 col-xs-12" id="PopCONTROL2_SHEM_ISHUV_0_container">
-                                    <button onclick="hideCityPopup()" class="btn pop-btn pop-btn-r">x</button>
+                                    <button onclick="hideCityPopup()" class="btn pop-btn pop-btn-r">X</button>
                                     <label for="CONTROL2_SHEM_ISHUV_0">
                                         <nobr>
                                             ישוב
@@ -509,7 +515,7 @@ color:white;
                                     <input id="CONTROL2_SHEM_MEGADEL_0" name="שם מגדל" type="text" value="" disabled class="moaginput">
                                 </span>
                                 <span class="responseField col-md-4 col-sm-12 col-xs-12" id="CONTROL2_SHEM_ISHUV_0_container">
-                                    <button onclick="showCityPopup()" class="btn pop-btn">+</button>
+                                    <button onclick="showCityPopup()" class="btn pop-btn"><img src="./plus icon.jpg" alt=""></button>
                                     <label for="CONTROL2_SHEM_ISHUV_0">
                                         <nobr>
                                             ישוב
