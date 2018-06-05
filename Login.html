@@ -63,39 +63,47 @@
       font-weight: 700;
     }
 
-
-
     header.header {
-      display: flex;
       display: -webkit-flex;
-      justify-content: center;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
       background: #ccc8d2;
-      min-height: 50px;
+      height: 50px;
     }
 
     div.logoImg {
       -webkit-flex: 2;
       /* Safari 6.1+ */
-      -ms-flex: 2;
-      flex: 2;
-      margin: 0 10px;
-      padding: 5px;
+      -ms-flex: 4;
+      display: flex;
+      flex: 4;
     }
 
     .logoImg img {
-      max-height: 10vh;
+      height: 95%;
+      padding: 5px;
     }
 
     div.title {
-      -webkit-flex: 8;
+      -webkit-flex: 4;
       /* Safari 6.1+ */
-      -ms-flex: 8;
-      flex: 8;
+      -ms-flex: 4;
+      flex: 4;
       font-size: 1.75em;
-      position: absolute;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    div.options {
+      -webkit-flex: 4;
+      /* Safari 6.1+ */
+      -ms-flex: 4;
+      flex: 4;
+      font-size: 1.75em;
       font-weight: 600;
     }
+
 
     @media (max-width: 550px) {
       #pageTitle {
@@ -149,9 +157,6 @@
 
     @media(max-width: 600px) {
 
-      .logoImg img {
-        width: 30%;
-      }
       div.ap-btn-container {
         flex-direction: column;
         justify-content: center;
@@ -171,16 +176,79 @@
 </head>
 
 <body dir="RTL" id="mainBody">
+  <script type="text/javascript">
 
+    $(document).ready(function () {
+      initFromSession();
+      $('#login').click(function () {
+        callWebServiceWithAllParams('MOAG_Login ', '', MOAG_Login_onSuccess, MOAG_Login_onFailure)
+      })
+    })
+
+    function initFromSession() {
+      $('.ui-loader').hide();
+      let userName = sessionStorage.getItem('CONTROL2_USERNAME_0');
+      let password = sessionStorage.getItem('CONTROL2_PASSWORD_0');
+      let numer = sessionStorage.getItem('CONTROL2_ZIHUY_0');
+
+      $('#CONTROL2_USERNAME_0').val(userName);
+      $('#CONTROL2_PASSWORD_0').val(password);
+      $('#CONTROL2_ZIHUY_0').val(numer);
+
+    }
+
+
+
+
+
+    function MOAG_Login_onFailure() {
+
+      console.log('fail');
+      var popupMsg = getResponseNodeValueByName('PopupMessages');
+      if (popupMsg.length == 0) {
+        navigate("details.html");
+      } else {
+        let msg1 = "הסיסמא המדווחת ראשונית";
+        let msg2 = "פג תוקפה של הסיסמא";
+        if (popupMsg[0].indexOf(msg1) != -1 || popupMsg[0].indexOf(msg2) != -1) {
+          showInfoPopup("כניסה", popupMsg[0], function () { navigate("newPassword.html") });
+        } else {
+          showInfoPopup("כניסה", "שם משתמש או סיסמא אינם תקינים", function () { });
+        }
+      }
+    }
+
+
+    function MOAG_Login_onSuccess() {
+      console.log('success');
+      var popupMsg = getResponseNodeValueByName('PopupMessages');
+      if (popupMsg.length == 0) {
+        navigate("manu.html");
+      } else {
+        let msg1 = "הסיסמא המדווחת ראשונית";
+        let msg2 = "פג תוקפה של הסיסמא";
+        if (popupMsg[0].indexOf(msg1) != -1 || popupMsg[0].indexOf(msg2) != -1) {
+          showInfoPopup("כניסה", popupMsg[0], function () { navigate("newPassword.html") });
+        } else {
+          $('.loginmsg').text(popupMsg);
+          $('#loginModal').modal('toggle');
+          //swal("שם משתמש או סיסמא אינם תקינים");
+          //showInfoPopup("כניסה","שם משתמש או סיסמא אינם תקינים" , () => {});
+        }
+      }
+    }
+
+  </script>
   <div id="mainPage" data-role="page" data-theme="a" class="background-stretch">
 
     <header class="header">
       <div class="logoImg">
         <a href="javascript:navigate('Login.html')">
-          <img src="../../www/img/moag.png">
+          <img src="moag3.png">
         </a>
       </div>
       <div class="title">כניסה</div>
+      <div class="options"></div>
     </header>
     <div data-role="main" class="ui-conten main-container">
       <div class="container center">
@@ -267,70 +335,6 @@
       </div>
     </div>
   </div>
-
-  <script type="text/javascript">
-
-    $(document).ready(function () {
-      initFromSession();
-      $('#login').click(function () {
-        callWebServiceWithAllParams('MOAG_Login ', '', MOAG_Login_onSuccess, MOAG_Login_onFailure)
-      })
-    })
-
-    function initFromSession() {
-      $('.ui-loader').hide();
-      let userName = sessionStorage.getItem('CONTROL2_USERNAME_0');
-      let password = sessionStorage.getItem('CONTROL2_PASSWORD_0');
-      let numer = sessionStorage.getItem('CONTROL2_ZIHUY_0');
-
-      $('#CONTROL2_USERNAME_0').val(userName);
-      $('#CONTROL2_PASSWORD_0').val(password);
-      $('#CONTROL2_ZIHUY_0').val(numer);
-
-    }
-
-
-
-
-
-    function MOAG_Login_onFailure() {
-
-      console.log('fail');
-      var popupMsg = getResponseNodeValueByName('PopupMessages');
-      if (popupMsg.length == 0) {
-        navigate("details.html");
-      } else {
-        let msg1 = "הסיסמא המדווחת ראשונית";
-        let msg2 = "פג תוקפה של הסיסמא";
-        if (popupMsg[0].indexOf(msg1) != -1 || popupMsg[0].indexOf(msg2) != -1) {
-          showInfoPopup("כניסה", popupMsg[0], function () { navigate("newPassword.html") });
-        } else {
-          showInfoPopup("כניסה", "שם משתמש או סיסמא אינם תקינים", function () { });
-        }
-      }
-    }
-
-
-    function MOAG_Login_onSuccess() {
-      console.log('success');
-      var popupMsg = getResponseNodeValueByName('PopupMessages');
-      if (popupMsg.length == 0) {
-        navigate("manu.html");
-      } else {
-        let msg1 = "הסיסמא המדווחת ראשונית";
-        let msg2 = "פג תוקפה של הסיסמא";
-        if (popupMsg[0].indexOf(msg1) != -1 || popupMsg[0].indexOf(msg2) != -1) {
-          showInfoPopup("כניסה", popupMsg[0], function () { navigate("newPassword.html") });
-        } else {
-          $('.loginmsg').text(popupMsg);
-          $('#loginModal').modal('toggle');
-          //swal("שם משתמש או סיסמא אינם תקינים");
-          //showInfoPopup("כניסה","שם משתמש או סיסמא אינם תקינים" , () => {});
-        }
-      }
-    }
-
-  </script>
 
 </body>
 
