@@ -1,0 +1,218 @@
+<html dir="RTL" lang="en">
+
+<head>
+    <meta name="Modified" content="1525259248063">
+    <title>ראשי בקר</title>
+  <!-- META -->
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate">
+  <meta http-equiv="last-modified" content="1525258654959">
+  <meta name="Created-By" content="AuraPlayer">
+  <meta name="Creation-Timestamp" content="1525258654959">
+  <!-- CSS imports -->
+  <!-- Latest compiled and minified CSS -->
+  <!--<link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile-1.4.5.min.css"> -->
+  <!--<link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile.theme-1.4.5.min.css"> -->
+  <link rel="stylesheet" href="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.css">
+  <!--<link rel="stylesheet" href="../../res/nativeDroid/css/nativedroid2.css"> -->
+  <!--<link rel="stylesheet" href="../../res/bootstrap/css/bootstrap.min.css"> -->
+  <!--<link rel="stylesheet" href="../../res/auraplayer/android.css"> -->
+  <!--<link rel="stylesheet" href="../../res/auraplayer/hamburger.css"> -->
+  <!-- Javascript imports -->
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="../../res/jquery/jquery.min.js"></script>
+  <!--<script type="text/javascript" src="../../res/jquery/jquery-dateFormat.min.js"></script> -->
+  <script type="text/javascript" src="../../res/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
+  <script type="text/javascript" src="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.js"></script>
+  <script type="text/javascript" src="../../res/nativeDroid/js/nativedroid2.js"></script>
+  <!-- <script type="text/javascript" src="../../res/bootstrap/js/bootstrap.min.js"></script> -->
+  <!-- AuraPlayer imports -->
+  <script type="text/javascript" src="../../res/dist/auraplayer.js"></script>
+  <script type="text/javascript" src="js/app.common.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/sweetalert2@7.19.3/dist/sweetalert2.all.js"></script>
+  <!-- <script type="text/javascript" src="json/handlerMap_1525258654959.json"></script>  -->
+  <!-- <script type="text/javascript" src="js/login.js"></script> -->
+  <!-- <script type="text/javascript" src="js/custom_js_1525258654959.js"></script>  -->
+  <!--<script type="text/javascript" src="js/custom_js_1524648298254.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script> -->
+  <!-- <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css"> -->
+  <!-- <link rel="stylesheet" href="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/css/bootstrap-datetimepicker.css"> -->
+    
+
+    <style>
+        body {
+            font-size: 18px;
+        }
+
+        input {
+            outline: none;
+        }
+
+        button.btn {
+            font-size: 90%;
+            font-weight: 700;
+        }
+
+        header.header {
+            display: -webkit-flex;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ccc8d2;
+            height: 50px;
+        }
+
+        div.logoImg {
+            -webkit-flex: 2;
+            /* Safari 6.1+ */
+            -ms-flex: 4;
+            display: flex;
+            flex: 4;
+        }
+
+        .logoImg img {
+            height: 95%;
+            padding: 5px;
+        }
+
+        div.title {
+            -webkit-flex: 4;
+            /* Safari 6.1+ */
+            -ms-flex: 4;
+            flex: 4;
+            font-size: 1.75em;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        div.options {
+            -webkit-flex: 4;
+            /* Safari 6.1+ */
+            -ms-flex: 4;
+            flex: 4;
+            font-size: 1.75em;
+            font-weight: 600;
+        }
+
+
+        @media (max-width: 550px) {
+            #pageTitle {
+                margin-left: 120px;
+                text-align: left !important;
+            }
+        }
+
+        .moaginput {
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #9f8db9;
+            text-align: right;
+        }
+
+        .main-container {
+            margin-top: 2em;
+        }
+
+        .moagLogin {
+            width: 100%;
+            margin-top: 10px;
+
+        }
+
+        .moagselect {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            border-bottom: 2px solid whitesmoke;
+        }
+
+        .center {
+            max-width: 400px;
+            border: 1px solid #a496b9;
+            border-radius: 12px;
+            padding: 2em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+            margin: auto;
+            text-align: center;
+        }
+
+        div.ap-btn-container {
+            display: -webkit-flex;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button.ap-btn.ap-btn-sm {
+            width: 32%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+        }
+
+        @media(max-width: 600px) {
+
+            div.ap-btn-container {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            button.ap-btn.ap-btn-sm {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .center {
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body id="mainBody">
+    <div id="mainPage" data-role="page" data-theme="a" class="background-stretch">
+        <header class="header">
+            <div class="logoImg">
+                <a href="javascript:navigate('Login.html')">
+                    <img src="moag3.png">
+                </a>
+            </div>
+            <div class="title">ראשי בקר</div>
+            <div class="options"></div>
+        </header>
+        <div data-role="main" class="ui-conten main-container">
+            <div class="container center">
+                <div>
+                    <div id="requestPart" name="requestPart">
+                        <div class="row" id="responseField">
+                            <form id="responseForm" style="width: 100%">
+                                <p>ברוכים הבאים</p>
+                                <p>בעת הכניסה יש להכניס פרטי משתמש</p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="ap-btn-container">
+                        <button id="goToLoginPage" onclick="goToLoginPage()" class="btn btn-success ap-btn">כניסת משתמשים מורשים</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function goToLoginPage() {
+        window.location.replace("http://192.116.94.101/ServiceManager/apps/MOAG/Login.html")
+    }
+</script>
+
+</html>

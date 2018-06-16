@@ -276,7 +276,7 @@
                       מס. זיהוי
                     </nobr>
                   </label>
-                  <input id="CONTROL2_ZIHUY_0" name="מס. זיהוי" type="text" value="" class="moaginput moagLogin"> </span>
+                  <input id="CONTROL2_ZIHUY_0" name="מס. זיהוי" type="text" value="" autocomplete="nope" class="moaginput moagLogin"> </span>
               </form>
             </div>
           </div>
@@ -335,6 +335,16 @@
       </div>
     </div>
   </div>
+  <script>
+
+    window.addEventListener('input', function (e) {
+      let input = e.target;
+     console.log("input event detected! coming from this element:", input);
+    }, false);
+    
+    </script>
+    
+    
 
 </body>
 
